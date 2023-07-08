@@ -1,18 +1,18 @@
 <?php
 
-namespace BrianHenryIE\Strauss\Tests\Integration;
+namespace AlexSoft\Strauss\Tests\Integration;
 
-use BrianHenryIE\Strauss\ChangeEnumerator;
-use BrianHenryIE\Strauss\Composer\ComposerPackage;
-use BrianHenryIE\Strauss\Composer\Extra\StraussConfig;
-use BrianHenryIE\Strauss\Composer\ProjectComposerPackage;
-use BrianHenryIE\Strauss\Copier;
-use BrianHenryIE\Strauss\FileEnumerator;
-use BrianHenryIE\Strauss\Tests\Integration\Util\IntegrationTestCase;
+use AlexSoft\Strauss\ChangeEnumerator;
+use AlexSoft\Strauss\Composer\ComposerPackage;
+use AlexSoft\Strauss\Composer\Extra\StraussConfig;
+use AlexSoft\Strauss\Composer\ProjectComposerPackage;
+use AlexSoft\Strauss\Copier;
+use AlexSoft\Strauss\FileEnumerator;
+use AlexSoft\Strauss\Tests\Integration\Util\IntegrationTestCase;
 
 /**
  * Class CopierTest
- * @package BrianHenryIE\Strauss
+ * @package AlexSoft\Strauss
  * @coversNothing
  */
 class ChangeEnumeratorIntegrationTest extends IntegrationTestCase
@@ -26,13 +26,13 @@ class ChangeEnumeratorIntegrationTest extends IntegrationTestCase
 
         $composerJsonString = <<<'EOD'
 {
-  "name": "brianhenryie/strauss",
+  "name": "alexsoft/strauss",
   "require": {
     "google/apiclient": "*"
   },
   "extra": {
     "strauss": {
-      "namespace_prefix": "BrianHenryIE\\Strauss\\",
+      "namespace_prefix": "AlexSoft\\Strauss\\",
       "classmap_prefix": "BrianHenryIE_Strauss_",
       "delete_vendor_files": false
     }

@@ -3,9 +3,9 @@
  * Extends ComposerPackage to return the typed Strauss config.
  */
 
-namespace BrianHenryIE\Strauss\Composer;
+namespace AlexSoft\Strauss\Composer;
 
-use BrianHenryIE\Strauss\Composer\Extra\StraussConfig;
+use AlexSoft\Strauss\Composer\Extra\StraussConfig;
 use Composer\Factory;
 use Composer\IO\NullIO;
 

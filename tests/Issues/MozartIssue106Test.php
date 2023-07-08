@@ -3,13 +3,13 @@
  * @see https://github.com/coenjacobs/mozart/blob/3b1243ca8505fa6436569800dc34269178930f39/tests/replacers/ClassmapReplacerIntegrationTest.php
  */
 
-namespace BrianHenryIE\Strauss\Tests\Issues;
+namespace AlexSoft\Strauss\Tests\Issues;
 
-use BrianHenryIE\Strauss\Console\Commands\Compose;
+use AlexSoft\Strauss\Console\Commands\Compose;
 
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use BrianHenryIE\Strauss\Tests\Integration\Util\IntegrationTestCase;
+use AlexSoft\Strauss\Tests\Integration\Util\IntegrationTestCase;
 
 /**
  * Class MozartIssue106Test
@@ -28,14 +28,14 @@ class MozartIssue106Test extends IntegrationTestCase
 
         $composerJsonString = <<<'EOD'
 {
-	"name": "brianhenryie/mozart-issue-106",
+	"name": "alexsoft/mozart-issue-106",
 	"require": {
 		"symfony/polyfill-intl-idn":  "1.22.0",
         "symfony/polyfill-intl-normalizer": "1.22.0"
 	},
 	"extra": {
 		"strauss": {
-			"namespace_prefix": "BrianHenryIE\\Strauss\\",
+			"namespace_prefix": "AlexSoft\\Strauss\\",
 			"classmap_prefix": "BrianHenryIE_Strauss_"
 		}
 	}

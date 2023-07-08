@@ -3,20 +3,20 @@
  * @author BrianHenryIE
  */
 
-namespace BrianHenryIE\Strauss\Tests\Unit;
+namespace AlexSoft\Strauss\Tests\Unit;
 
 use ArrayIterator;
-use BrianHenryIE\Strauss\Composer\ComposerPackage;
-use BrianHenryIE\Strauss\Composer\Extra\StraussConfig;
-use BrianHenryIE\Strauss\Licenser;
+use AlexSoft\Strauss\Composer\ComposerPackage;
+use AlexSoft\Strauss\Composer\Extra\StraussConfig;
+use AlexSoft\Strauss\Licenser;
 use PHPUnit\Framework\Constraint\Callback;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Finder\Finder;
 
 /**
  * Class LicenserTest
- * @package BrianHenryIE\Strauss\Tests\Unit
- * @coversDefaultClass \BrianHenryIE\Strauss\Licenser
+ * @package AlexSoft\Strauss\Tests\Unit
+ * @coversDefaultClass \AlexSoft\Strauss\Licenser
  */
 class LicenserTest extends TestCase
 {
@@ -101,7 +101,7 @@ EOD;
  * @license proprietary
  *
  * Modified by BrianHenryIE on 25-April-2021 using Strauss.
- * @see https://github.com/BrianHenryIE/strauss
+ * @see https://github.com/fotobank/strauss
  */
 
 namespace net\authorize\api\contract\v1;
@@ -119,7 +119,7 @@ EOD;
      * Not including the date was reported as not working.
      * The real problem was the master readme was ahead of the packagist release.
      *
-     * @see https://github.com/BrianHenryIE/strauss/issues/35
+     * @see https://github.com/fotobank/strauss/issues/35
      *
      * @covers ::addChangeDeclarationToPhpString
      */
@@ -146,7 +146,7 @@ EOD;
  * @license proprietary
  *
  * Modified by BrianHenryIE using Strauss.
- * @see https://github.com/BrianHenryIE/strauss
+ * @see https://github.com/fotobank/strauss
  */
 
 namespace net\authorize\api\contract\v1;
@@ -182,7 +182,7 @@ EOD;
  * @license proprietary
  *
  * Modified using Strauss.
- * @see https://github.com/BrianHenryIE/strauss
+ * @see https://github.com/fotobank/strauss
  */
 
 namespace net\authorize\api\contract\v1;
@@ -233,7 +233,7 @@ EOD;
  * @link      https://github.com/WPTRT/admin-notices
  *
  * Modified by BrianHenryIE on 25-April-2021 using Strauss.
- * @see https://github.com/BrianHenryIE/strauss
+ * @see https://github.com/fotobank/strauss
  */
 
 namespace Yeah;
@@ -296,7 +296,7 @@ EOD;
  * @link      https://github.com/afragen/wp-dependency-installer
  *
  * Modified by BrianHenryIE on 25-April-2021 using Strauss.
- * @see https://github.com/BrianHenryIE/strauss
+ * @see https://github.com/fotobank/strauss
  */
 
 /**
@@ -348,7 +348,7 @@ EOD;
 *******************************************************************************
 * @license proprietary
 * Modified by BrianHenryIE on 25-April-2021 using Strauss.
-* @see https://github.com/BrianHenryIE/strauss
+* @see https://github.com/fotobank/strauss
 */
 
 define('FPDF_VERSION','1.82');
@@ -405,7 +405,7 @@ EOD;
  * to kontakt@beberlei.de so I can send you a copy immediately.
  *
  * Modified by BrianHenryIE on 25-April-2021 using Strauss.
- * @see https://github.com/BrianHenryIE/strauss
+ * @see https://github.com/fotobank/strauss
  */
 
 namespace Your_Domain\Assert;
@@ -477,7 +477,7 @@ EOD;
  * @link      https://github.com/afragen/wp-dependency-installer
  *
  * Modified by BrianHenryIE on 25-April-2021 using Strauss.
- * @see https://github.com/BrianHenryIE/strauss
+ * @see https://github.com/fotobank/strauss
  */
 
 /**
@@ -523,7 +523,7 @@ EOD;
  * @license MIT
  *
  * Modified by BrianHenryIE on 25-April-2021 using Strauss.
- * @see https://github.com/BrianHenryIE/strauss
+ * @see https://github.com/fotobank/strauss
  */
 
 ?>

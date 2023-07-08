@@ -16,17 +16,17 @@
  *
  */
 
-namespace BrianHenryIE\Strauss\Tests\Issues;
+namespace AlexSoft\Strauss\Tests\Issues;
 
-use BrianHenryIE\Strauss\Console\Commands\Compose;
-use BrianHenryIE\Strauss\Tests\Integration\Util\IntegrationTestCase;
+use AlexSoft\Strauss\Console\Commands\Compose;
+use AlexSoft\Strauss\Tests\Integration\Util\IntegrationTestCase;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 /**
  * Class MozartIssue62Test
- * @package BrianHenryIE\Strauss\Tests\Issues
+ * @package AlexSoft\Strauss\Tests\Issues
  * @coversNothing
  */
 class MozartIssue62Test extends IntegrationTestCase
@@ -41,7 +41,7 @@ class MozartIssue62Test extends IntegrationTestCase
 
         $composerJsonString = <<<'EOD'
 {
-  "name": "brianhenryie/mozart-issue-62",
+  "name": "alexsoft/mozart-issue-62",
   "require": {
     "aws/aws-sdk-php": "2.8.*"
   },

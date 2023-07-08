@@ -1,9 +1,9 @@
 <?php
 
-namespace BrianHenryIE\Strauss;
+namespace AlexSoft\Strauss;
 
-use BrianHenryIE\Strauss\Composer\ComposerPackage;
-use BrianHenryIE\Strauss\Composer\Extra\StraussConfig;
+use AlexSoft\Strauss\Composer\ComposerPackage;
+use AlexSoft\Strauss\Composer\Extra\StraussConfig;
 use Exception;
 use League\Flysystem\Adapter\Local;
 use League\Flysystem\FileNotFoundException;

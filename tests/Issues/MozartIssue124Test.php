@@ -4,14 +4,14 @@
  * @see https://github.com/coenjacobs/mozart/blob/3b1243ca8505fa6436569800dc34269178930f39/tests/replacers/NamespaceReplacerIntegrationTest.php
  */
 
-namespace BrianHenryIE\Strauss\Tests\Issues;
+namespace AlexSoft\Strauss\Tests\Issues;
 
-use BrianHenryIE\Strauss\Console\Commands\Compose;
+use AlexSoft\Strauss\Console\Commands\Compose;
 
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use BrianHenryIE\Strauss\Tests\Integration\Util\IntegrationTestCase;
+use AlexSoft\Strauss\Tests\Integration\Util\IntegrationTestCase;
 
 /**
  * Class MozartIssue124Test
@@ -36,13 +36,13 @@ class MozartIssue124Test extends IntegrationTestCase
 
         $composerJsonString = <<<'EOD'
 {
-	"name": "brianhenryie/mozart-issue-124",
+	"name": "alexsoft/mozart-issue-124",
 	"require": {
 		"mpdf/mpdf": "8.0.10"
 	},
 	"extra": {
 		"strauss": {
-			"namespace_prefix": "BrianHenryIE\\Strauss\\",
+			"namespace_prefix": "AlexSoft\\Strauss\\",
 			"classmap_prefix": "BrianHenryIE_Strauss_"
 		}
 	}
@@ -65,7 +65,7 @@ EOD;
         $mpdf_php = file_get_contents($this->testsWorkingDir .'vendor-prefixed/mpdf/mpdf/src/Mpdf.php');
 
         // Confirm problem is gone.
-        $this->assertStringNotContainsString('class BrianHenryIE\Strauss\Mpdf implements', $mpdf_php);
+        $this->assertStringNotContainsString('class AlexSoft\Strauss\Mpdf implements', $mpdf_php);
 
         // Confirm solution is correct.
         $this->assertStringContainsString('class Mpdf implements', $mpdf_php);
@@ -88,13 +88,13 @@ EOD;
 
         $composerJsonString = <<<'EOD'
 {
-	"name": "brianhenryie/mozart-issue-124",
+	"name": "alexsoft/mozart-issue-124",
 	"require": {
 		"mpdf/mpdf": "8.0.10"
 	},
 	"extra": {
 		"strauss": {
-			"namespace_prefix": "BrianHenryIE\\Strauss\\",
+			"namespace_prefix": "AlexSoft\\Strauss\\",
 			"classmap_prefix": "BrianHenryIE_Strauss_"
 		}
 	}
@@ -117,7 +117,7 @@ EOD;
         $mpdf_php = file_get_contents($this->testsWorkingDir .'vendor-prefixed/mpdf/mpdf/src/Conversion/DecToOther.php');
 
         // Confirm problem is gone.
-        $this->assertStringNotContainsString('public function __construct(BrianHenryIE\Strauss\Mpdf $mpdf)', $mpdf_php);
+        $this->assertStringNotContainsString('public function __construct(AlexSoft\Strauss\Mpdf $mpdf)', $mpdf_php);
 
         // Confirm solution is correct.
         $this->assertStringContainsString('public function __construct(Mpdf $mpdf)', $mpdf_php);
@@ -137,13 +137,13 @@ EOD;
 
         $composerJsonString = <<<'EOD'
 {
-	"name": "brianhenryie/mozart-issue-124",
+	"name": "alexsoft/mozart-issue-124",
 	"require": {
 		"mpdf/mpdf": "8.0.10"
 	},
 	"extra": {
 		"strauss": {
-			"namespace_prefix": "BrianHenryIE\\Strauss\\",
+			"namespace_prefix": "AlexSoft\\Strauss\\",
 			"classmap_prefix": "BrianHenryIE_Strauss_"
 		}
 	}
@@ -169,6 +169,6 @@ EOD;
         $this->assertStringNotContainsString('class BarcodeException extends \Mpdf\MpdfException', $mpdf_php);
 
         // Confirm solution is correct.
-        $this->assertStringContainsString('class BarcodeException extends \BrianHenryIE\Strauss\Mpdf\MpdfException', $mpdf_php);
+        $this->assertStringContainsString('class BarcodeException extends \AlexSoft\Strauss\Mpdf\MpdfException', $mpdf_php);
     }
 }

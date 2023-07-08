@@ -1,7 +1,11 @@
 {
-    "name": "brianhenryie/strauss",
+    "name": "fotobank/strauss",
     "description": "Composes all dependencies as a package inside a WordPress plugin",
     "authors": [
+        {
+            "name": "Alex Yury",
+            "email": "juriia@gmail.com"
+        },
         {
             "name": "Brian Henry",
             "email": "BrianHenryIE@gmail.com"
@@ -24,12 +28,12 @@
     },
     "autoload": {
         "psr-4": {
-            "BrianHenryIE\\Strauss\\": "src/"
+            "AlexSoft\\Strauss\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "BrianHenryIE\\Strauss\\Tests\\": "tests/"
+            "AlexSoft\\Strauss\\Tests\\": "tests/"
         }
     },
     "require-dev": {

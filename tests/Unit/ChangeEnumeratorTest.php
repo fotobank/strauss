@@ -1,11 +1,11 @@
 <?php
 
-namespace BrianHenryIE\Strauss\Tests\Unit;
+namespace AlexSoft\Strauss\Tests\Unit;
 
-use BrianHenryIE\Strauss\ChangeEnumerator;
-use BrianHenryIE\Strauss\Composer\ComposerPackage;
-use BrianHenryIE\Strauss\Composer\Extra\StraussConfig;
-use BrianHenryIE\Strauss\Prefixer;
+use AlexSoft\Strauss\ChangeEnumerator;
+use AlexSoft\Strauss\Composer\ComposerPackage;
+use AlexSoft\Strauss\Composer\Extra\StraussConfig;
+use AlexSoft\Strauss\Prefixer;
 use Composer\Composer;
 use PHPUnit\Framework\TestCase;
 
@@ -330,12 +330,12 @@ EOD;
 
         $config = $this->createMock(StraussConfig::class);
         $config->method('getExcludePackagesFromPrefixing')->willReturn(
-            array('brianhenryie/pdfhelpers')
+            array('alexsoft/pdfhelpers')
         );
 
         $dir = '';
         $composerPackage = $this->createMock(ComposerPackage::class);
-        $composerPackage->method('getPackageName')->willReturn('brianhenryie/pdfhelpers');
+        $composerPackage->method('getPackageName')->willReturn('alexsoft/pdfhelpers');
         $filesArray = array(
             'irrelevantPath' => array(
                 'dependency' => $composerPackage
@@ -358,7 +358,7 @@ EOD;
 
         $dir = '';
         $composerPackage = $this->createMock(ComposerPackage::class);
-        $composerPackage->method('getPackageName')->willReturn('brianhenryie/pdfhelpers');
+        $composerPackage->method('getPackageName')->willReturn('alexsoft/pdfhelpers');
         $filesArray = array(
             'path/to/file' => array(
                 'dependency' => $composerPackage
@@ -378,27 +378,27 @@ EOD;
     {
 
         $contents = "
-		namespace BrianHenryIE\PdfHelpers {
+		namespace AlexSoft\PdfHelpers {
 			class A_Class { }
 		}
 		";
 
         $config = $this->createMock(StraussConfig::class);
-        $config->method('getNamespacePrefix')->willReturn('BrianHenryIE\Prefix');
+        $config->method('getNamespacePrefix')->willReturn('AlexSoft\Prefix');
         $config->method('getNamespaceReplacementPatterns')->willReturn(
-            array('/BrianHenryIE\\\\(PdfHelpers)/'=>'BrianHenryIE\\Prefix\\\\$1')
+            array('/AlexSoft\\\\(PdfHelpers)/'=>'AlexSoft\\Prefix\\\\$1')
         );
 
         $changeEnumerator = new ChangeEnumerator($config);
         $changeEnumerator->find($contents);
 
-        $this->assertArrayHasKey('BrianHenryIE\PdfHelpers', $changeEnumerator->getDiscoveredNamespaceReplacements());
-        $this->assertContains('BrianHenryIE\Prefix\PdfHelpers', $changeEnumerator->getDiscoveredNamespaceReplacements());
-        $this->assertNotContains('BrianHenryIE\Prefix\BrianHenryIE\PdfHelpers', $changeEnumerator->getDiscoveredNamespaceReplacements());
+        $this->assertArrayHasKey('AlexSoft\PdfHelpers', $changeEnumerator->getDiscoveredNamespaceReplacements());
+        $this->assertContains('AlexSoft\Prefix\PdfHelpers', $changeEnumerator->getDiscoveredNamespaceReplacements());
+        $this->assertNotContains('AlexSoft\Prefix\AlexSoft\PdfHelpers', $changeEnumerator->getDiscoveredNamespaceReplacements());
     }
 
     /**
-     * @see https://github.com/BrianHenryIE/strauss/issues/19
+     * @see https://github.com/fotobank/strauss/issues/19
      */
     public function testPhraseClassObjectIsNotMistaken()
     {

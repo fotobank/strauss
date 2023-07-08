@@ -11,9 +11,9 @@
  * @license MIT
  */
 
-namespace BrianHenryIE\Strauss;
+namespace AlexSoft\Strauss;
 
-use BrianHenryIE\Strauss\Composer\ComposerPackage;
+use AlexSoft\Strauss\Composer\ComposerPackage;
 use League\Flysystem\Adapter\Local;
 use League\Flysystem\Filesystem;
 

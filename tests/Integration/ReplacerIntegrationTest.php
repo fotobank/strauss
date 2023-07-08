@@ -1,23 +1,23 @@
 <?php
 
-namespace BrianHenryIE\Strauss\Tests\Integration;
+namespace AlexSoft\Strauss\Tests\Integration;
 
-use BrianHenryIE\Strauss\ChangeEnumerator;
-use BrianHenryIE\Strauss\Composer\ComposerPackage;
-use BrianHenryIE\Strauss\Composer\Extra\StraussConfig;
-use BrianHenryIE\Strauss\Composer\ProjectComposerPackage;
-use BrianHenryIE\Strauss\Console\Commands\Compose;
-use BrianHenryIE\Strauss\Copier;
-use BrianHenryIE\Strauss\FileEnumerator;
-use BrianHenryIE\Strauss\Prefixer;
-use BrianHenryIE\Strauss\Tests\Integration\Util\IntegrationTestCase;
+use AlexSoft\Strauss\ChangeEnumerator;
+use AlexSoft\Strauss\Composer\ComposerPackage;
+use AlexSoft\Strauss\Composer\Extra\StraussConfig;
+use AlexSoft\Strauss\Composer\ProjectComposerPackage;
+use AlexSoft\Strauss\Console\Commands\Compose;
+use AlexSoft\Strauss\Copier;
+use AlexSoft\Strauss\FileEnumerator;
+use AlexSoft\Strauss\Prefixer;
+use AlexSoft\Strauss\Tests\Integration\Util\IntegrationTestCase;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 /**
  * Class ReplacerIntegrationTest
- * @package BrianHenryIE\Strauss\Tests\Integration
+ * @package AlexSoft\Strauss\Tests\Integration
  * @coversNothing
  */
 class ReplacerIntegrationTest extends IntegrationTestCase
@@ -28,13 +28,13 @@ class ReplacerIntegrationTest extends IntegrationTestCase
 
         $composerJsonString = <<<'EOD'
 {
-  "name": "brianhenryie/strauss",
+  "name": "alexsoft/strauss",
   "require": {
     "google/apiclient": "*"
   },
   "extra": {
     "strauss": {
-      "namespace_prefix": "BrianHenryIE\\Strauss\\",
+      "namespace_prefix": "AlexSoft\\Strauss\\",
       "classmap_prefix": "BrianHenryIE_Strauss_"
     }
   }
@@ -85,7 +85,7 @@ EOD;
 
         $updatedFile = file_get_contents($absoluteTargetDir . 'google/apiclient/src/Client.php');
 
-        $this->assertStringContainsString('use BrianHenryIE\Strauss\Google\AccessToken\Revoke;', $updatedFile);
+        $this->assertStringContainsString('use AlexSoft\Strauss\Google\AccessToken\Revoke;', $updatedFile);
     }
 
 
@@ -94,13 +94,13 @@ EOD;
 
         $composerJsonString = <<<'EOD'
 {
-  "name": "brianhenryie/strauss",
+  "name": "alexsoft/strauss",
   "require": {
     "setasign/fpdf": "*"
   },
   "extra": {
     "strauss": {
-      "namespace_prefix": "BrianHenryIE\\Strauss\\",
+      "namespace_prefix": "AlexSoft\\Strauss\\",
       "classmap_prefix": "BrianHenryIE_Strauss_",
       "delete_vendor_files": false
     }

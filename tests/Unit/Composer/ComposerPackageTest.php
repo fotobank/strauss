@@ -1,8 +1,8 @@
 <?php
 
-namespace BrianHenryIE\Strauss\Tests\Unit\Composer;
+namespace AlexSoft\Strauss\Tests\Unit\Composer;
 
-use BrianHenryIE\Strauss\Composer\ComposerPackage;
+use AlexSoft\Strauss\Composer\ComposerPackage;
 use PHPUnit\Framework\TestCase;
 
 class ComposerPackageTest extends TestCase

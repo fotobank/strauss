@@ -3,16 +3,16 @@
  * @see https://github.com/coenjacobs/mozart/issues/89
  */
 
-namespace BrianHenryIE\Strauss\Tests\Issues;
+namespace AlexSoft\Strauss\Tests\Issues;
 
-use BrianHenryIE\Strauss\Console\Commands\Compose;
-use BrianHenryIE\Strauss\Tests\Integration\Util\IntegrationTestCase;
+use AlexSoft\Strauss\Console\Commands\Compose;
+use AlexSoft\Strauss\Tests\Integration\Util\IntegrationTestCase;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 /**
  * Class MozartIssue89Test
- * @package BrianHenryIE\Strauss\Tests\Issues
+ * @package AlexSoft\Strauss\Tests\Issues
  * @coversNothing
  */
 class MozartIssue89Test extends IntegrationTestCase
@@ -63,13 +63,13 @@ class MozartIssue89Test extends IntegrationTestCase
 
         $composerJsonString = <<<'EOD'
 {
-	"name": "brianhenryie/mozart-issue-89",
+	"name": "alexsoft/mozart-issue-89",
 	"require": {
 		"iio/libmergepdf": "4.0"
 	},
 	"extra": {
 		"strauss": {
-			"namespace_prefix": "BrianHenryIE\\Strauss\\",
+			"namespace_prefix": "AlexSoft\\Strauss\\",
 			"classmap_prefix": "BrianHenryIE_Strauss_"
 		}
 	}

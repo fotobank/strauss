@@ -1,12 +1,12 @@
 {
-  "name": "brianhenryie/strauss-config-test",
+  "name": "fotobank/strauss-config-test",
   "require": {
     "league/container": "*"
   },
 
   "autoload": {
     "psr-4": {
-      "BrianHenryIE\\Strauss\\": "src"
+      "AlexSoft\\Strauss\\": "src"
     }
   }
 }

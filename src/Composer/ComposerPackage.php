@@ -5,7 +5,7 @@
  * Use this for dependencies. Use ProjectComposerPackage for the primary composer.json.
  */
 
-namespace BrianHenryIE\Strauss\Composer;
+namespace AlexSoft\Strauss\Composer;
 
 use Composer\Composer;
 use Composer\Factory;
@@ -26,7 +26,7 @@ class ComposerPackage
     /**
      * The name of the project in composer.json.
      *
-     * e.g. brianhenryie/my-project
+     * e.g. fotobank/my-project
      *
      * @var string
      */
@@ -162,7 +162,7 @@ class ComposerPackage
 
     /**
      *
-     * e.g. ['psr-4' => [ 'BrianHenryIE\Project' => 'src' ]]
+     * e.g. ['psr-4' => [ 'AlexSoft\Project' => 'src' ]]
      *
      * @return array<string, array<int|string, string>>
      */

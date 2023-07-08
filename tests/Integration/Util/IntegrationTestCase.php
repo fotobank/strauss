@@ -5,7 +5,7 @@
  * Could just system temp directory, but this is useful for setting breakpoints and seeing what has happened.
  */
 
-namespace BrianHenryIE\Strauss\Tests\Integration\Util;
+namespace AlexSoft\Strauss\Tests\Integration\Util;
 
 use PHPUnit\Framework\TestCase;
 use RecursiveDirectoryIterator;
@@ -13,7 +13,7 @@ use RecursiveIteratorIterator;
 
 /**
  * Class IntegrationTestCase
- * @package BrianHenryIE\Strauss\Tests\Integration\Util
+ * @package AlexSoft\Strauss\Tests\Integration\Util
  * @coversNothing
  */
 class IntegrationTestCase extends TestCase

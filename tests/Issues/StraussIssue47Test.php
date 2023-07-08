@@ -3,25 +3,25 @@
  * When the namespace being replaced is a substring of the prefix, the order of replacements
  * is important, otherwise the replacement is performed twice.
  *
- * @see \BrianHenryIE\Strauss\Prefixer::replaceInString()
+ * @see \AlexSoft\Strauss\Prefixer::replaceInString()
  * @see asort()
  *
  * @see https://core.trac.wordpress.org/ticket/42670
  */
 
-namespace BrianHenryIE\Strauss\Tests\Issues;
+namespace AlexSoft\Strauss\Tests\Issues;
 
-use BrianHenryIE\Strauss\Composer\Extra\StraussConfig;
-use BrianHenryIE\Strauss\Console\Commands\Compose;
-use BrianHenryIE\Strauss\Prefixer;
+use AlexSoft\Strauss\Composer\Extra\StraussConfig;
+use AlexSoft\Strauss\Console\Commands\Compose;
+use AlexSoft\Strauss\Prefixer;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 /**
- * @package BrianHenryIE\Strauss\Tests\Issues
+ * @package AlexSoft\Strauss\Tests\Issues
  * @coversNothing
  */
-class StraussIssue47Test extends \BrianHenryIE\Strauss\Tests\Integration\Util\IntegrationTestCase
+class StraussIssue47Test extends \AlexSoft\Strauss\Tests\Integration\Util\IntegrationTestCase
 {
 
     /*
@@ -32,7 +32,7 @@ class StraussIssue47Test extends \BrianHenryIE\Strauss\Tests\Integration\Util\In
 
         $composerJsonString = <<<'EOD'
 {
-  "name": "brianhenryie/double-namespace-47",
+  "name": "alexsoft/double-namespace-47",
   "minimum-stability": "dev",
   "repositories": {
     "dragon-public/framework": {
@@ -84,7 +84,7 @@ EOD;
 
         $composerJsonString = <<<'EOD'
 {
-  "name": "brianhenryie/double-namespace-47",
+  "name": "alexsoft/double-namespace-47",
   "minimum-stability": "dev",
   "repositories": {
     "dragon-public/framework": {
@@ -162,7 +162,7 @@ EOD;
 
         $composerJsonString = <<<'EOD'
 {
-  "name": "brianhenryie/double-namespace-47",
+  "name": "alexsoft/double-namespace-47",
   "minimum-stability": "dev",
   "repositories": {
     "dragon-public/framework": {

@@ -3,13 +3,13 @@
  * When users migrate from Mozart, the settings are only preserved when the extra "mozart" key
  * is still used. Let's change it so they're understood not matter what.
  *
- * @see https://github.com/BrianHenryIE/strauss/issues/11
+ * @see https://github.com/fotobank/strauss/issues/11
  */
 
-namespace BrianHenryIE\Strauss\Tests\Issues;
+namespace AlexSoft\Strauss\Tests\Issues;
 
-use BrianHenryIE\Strauss\Composer\Extra\StraussConfig;
-use BrianHenryIE\Strauss\Console\Commands\Compose;
+use AlexSoft\Strauss\Composer\Extra\StraussConfig;
+use AlexSoft\Strauss\Console\Commands\Compose;
 use Composer\Factory;
 use Composer\IO\NullIO;
 use Exception;
@@ -17,10 +17,10 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 /**
- * @package BrianHenryIE\Strauss\Tests\Issues
+ * @package AlexSoft\Strauss\Tests\Issues
  * @coversNothing
  */
-class StraussIssue11Test extends \BrianHenryIE\Strauss\Tests\Integration\Util\IntegrationTestCase
+class StraussIssue11Test extends \AlexSoft\Strauss\Tests\Integration\Util\IntegrationTestCase
 {
 
     /**
@@ -31,7 +31,7 @@ class StraussIssue11Test extends \BrianHenryIE\Strauss\Tests\Integration\Util\In
 
         $composerExtraStraussJson = <<<'EOD'
 {
-	"name": "brianhenryie/strauss-issue-8",
+	"name": "alexsoft/strauss-issue-8",
 	"extra": {
 		"mozart": {
 			"dep_namespace": "MZoo\\MBO_Sandbox\\Dependencies\\",
@@ -83,7 +83,7 @@ EOD;
 
         $composerJsonString = <<<'EOD'
 {
-	"name": "brianhenryie/strauss-issue-8",
+	"name": "alexsoft/strauss-issue-8",
 	"require":{
 	    "htmlburger/carbon-fields": "*"
 	},
@@ -144,7 +144,7 @@ EOD;
 
         $composerJsonString = <<<'EOD'
 {
-	"name": "brianhenryie/strauss-issue-8",
+	"name": "alexsoft/strauss-issue-8",
 	"require":{
 	    "htmlburger/carbon-fields": "*"
 	},

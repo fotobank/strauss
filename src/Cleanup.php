@@ -3,9 +3,9 @@
  * Deletes source files and empty directories.
  */
 
-namespace BrianHenryIE\Strauss;
+namespace AlexSoft\Strauss;
 
-use BrianHenryIE\Strauss\Composer\Extra\StraussConfig;
+use AlexSoft\Strauss\Composer\Extra\StraussConfig;
 use League\Flysystem\Adapter\Local;
 use League\Flysystem\Filesystem;
 use RecursiveDirectoryIterator;

@@ -5,10 +5,10 @@
  * Those recorded are updated in a later step.
  */
 
-namespace BrianHenryIE\Strauss;
+namespace AlexSoft\Strauss;
 
-use BrianHenryIE\Strauss\Composer\ComposerPackage;
-use BrianHenryIE\Strauss\Composer\Extra\StraussConfig;
+use AlexSoft\Strauss\Composer\ComposerPackage;
+use AlexSoft\Strauss\Composer\Extra\StraussConfig;
 
 class ChangeEnumerator
 {
@@ -37,7 +37,7 @@ class ChangeEnumerator
 
     /**
      * ChangeEnumerator constructor.
-     * @param \BrianHenryIE\Strauss\Composer\Extra\StraussConfig $config
+     * @param \AlexSoft\Strauss\Composer\Extra\StraussConfig $config
      */
     public function __construct(StraussConfig $config)
     {

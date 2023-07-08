@@ -14,10 +14,10 @@
  * @author BrianHenryIE
  */
 
-namespace BrianHenryIE\Strauss;
+namespace AlexSoft\Strauss;
 
-use BrianHenryIE\Strauss\Composer\ComposerPackage;
-use BrianHenryIE\Strauss\Composer\Extra\StraussConfig;
+use AlexSoft\Strauss\Composer\ComposerPackage;
+use AlexSoft\Strauss\Composer\Extra\StraussConfig;
 use League\Flysystem\Adapter\Local;
 use League\Flysystem\Filesystem;
 use Symfony\Component\Finder\Finder;
@@ -169,7 +169,7 @@ class Licenser
      * Given a php file as a string, edit its header phpdoc, or add a header, to include:
      *
      * "Modified by {author} on {date} using Strauss.
-     * @see https://github.com/BrianHenryIE/strauss"
+     * @see https://github.com/fotobank/strauss"
      *
      * Should probably include the original license in each file since it'll often be a mix, with the parent
      * project often being a GPL WordPress plugin.
@@ -202,7 +202,7 @@ class Licenser
         }
         $modifiedDeclaration .= 'using Strauss.';
 
-        $straussLink = "@see https://github.com/BrianHenryIE/strauss";
+        $straussLink = "@see https://github.com/fotobank/strauss";
 
         // php-open followed by some whitespace and new line until the first ...
         $noCommentBetweenPhpOpenAndFirstCodePattern = '~<\?php[\s\n]*[\w\\\?]+~';

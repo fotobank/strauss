@@ -7,18 +7,18 @@
  */
 
 
-namespace BrianHenryIE\Strauss\Tests\Unit;
+namespace AlexSoft\Strauss\Tests\Unit;
 
-use BrianHenryIE\Strauss\Composer\Extra\StraussConfig;
-use BrianHenryIE\Strauss\Prefixer;
+use AlexSoft\Strauss\Composer\Extra\StraussConfig;
+use AlexSoft\Strauss\Prefixer;
 use Composer\Composer;
 use Composer\Config;
 use PHPUnit\Framework\TestCase;
 
 /**
  * Class ReplacerTest
- * @package BrianHenryIE\Strauss
- * @covers \BrianHenryIE\Strauss\Prefixer
+ * @package AlexSoft\Strauss
+ * @covers \AlexSoft\Strauss\Prefixer
  */
 class PrefixerTest extends TestCase
 {
@@ -31,7 +31,7 @@ class PrefixerTest extends TestCase
 
         $composerJson = <<<'EOD'
 {
-"name": "brianhenryie/strauss-replacer-test",
+"name": "alexsoft/strauss-replacer-test",
 "extra": {
 
 }
@@ -127,11 +127,11 @@ EOD;
         $replacer = new Prefixer($config, __DIR__);
 
         $originalNamespace = 'Google\\Http';
-        $replacement = 'BrianHenryIE\\Strauss\\Google\\Http';
+        $replacement = 'AlexSoft\\Strauss\\Google\\Http';
 
         $result = $replacer->replaceNamespace($contents, $originalNamespace, $replacement);
 
-        $expected = 'use BrianHenryIE\\Strauss\\Google\\Http\\Batch;';
+        $expected = 'use AlexSoft\\Strauss\\Google\\Http\\Batch;';
 
         $this->assertStringContainsString($expected, $result);
     }
@@ -512,7 +512,7 @@ EOD;
      *
      * This was not the cause of the issue (i.e. this test, pretty much identical to the one above, passed immediately).
      *
-     * @see https://github.com/BrianHenryIE/strauss/issues/47
+     * @see https://github.com/fotobank/strauss/issues/47
      */
     public function testDoesNotDoublePrefixAlreadyUpdatedNamespace(): void
     {
@@ -692,7 +692,7 @@ EOD;
         $config = $this->createMock(StraussConfig::class);
 
         $replacer = new Prefixer($config, __DIR__);
-        $result = $replacer->replaceNamespace($contents, 'Mpdf', 'BrianHenryIE\Strauss\Mpdf');
+        $result = $replacer->replaceNamespace($contents, 'Mpdf', 'AlexSoft\Strauss\Mpdf');
 
         $this->assertEquals($expected, $result);
     }
@@ -701,12 +701,12 @@ EOD;
     {
 
         $contents = 'class BarcodeException extends \Mpdf\MpdfException';
-        $expected = 'class BarcodeException extends \BrianHenryIE\Strauss\Mpdf\MpdfException';
+        $expected = 'class BarcodeException extends \AlexSoft\Strauss\Mpdf\MpdfException';
 
         $config = $this->createMock(StraussConfig::class);
 
         $replacer = new Prefixer($config, __DIR__);
-        $result = $replacer->replaceNamespace($contents, 'Mpdf', 'BrianHenryIE\Strauss\Mpdf');
+        $result = $replacer->replaceNamespace($contents, 'Mpdf', 'AlexSoft\Strauss\Mpdf');
 
         $this->assertEquals($expected, $result);
     }
@@ -714,18 +714,18 @@ EOD;
     /**
      * Prefix namespaced classnames after `new` keyword.
      *
-     * @see https://github.com/BrianHenryIE/strauss/issues/11
+     * @see https://github.com/fotobank/strauss/issues/11
      */
     public function testNewNamespacedClassIsPrefixed()
     {
 
         $contents = '$ioc->register( new \Carbon_Fields\Provider\Container_Condition_Provider() );';
-        $expected = '$ioc->register( new \BrianHenryIE\Strauss\Carbon_Fields\Provider\Container_Condition_Provider() );';
+        $expected = '$ioc->register( new \AlexSoft\Strauss\Carbon_Fields\Provider\Container_Condition_Provider() );';
 
         $config = $this->createMock(StraussConfig::class);
 
         $replacer = new Prefixer($config, __DIR__);
-        $result = $replacer->replaceNamespace($contents, 'Carbon_Fields\Provider', 'BrianHenryIE\Strauss\Carbon_Fields\Provider');
+        $result = $replacer->replaceNamespace($contents, 'Carbon_Fields\Provider', 'AlexSoft\Strauss\Carbon_Fields\Provider');
 
         $this->assertEquals($expected, $result);
     }
@@ -735,18 +735,18 @@ EOD;
     /**
      * Prefix namespaced classnames after `static` keyword.
      *
-     * @see https://github.com/BrianHenryIE/strauss/issues/11
+     * @see https://github.com/fotobank/strauss/issues/11
      */
     public function testStaticNamespacedClassIsPrefixed()
     {
 
         $contents = '@method static \Carbon_Fields\Container\Comment_Meta_Container';
-        $expected = '@method static \BrianHenryIE\Strauss\Carbon_Fields\Container\Comment_Meta_Container';
+        $expected = '@method static \AlexSoft\Strauss\Carbon_Fields\Container\Comment_Meta_Container';
 
         $config = $this->createMock(StraussConfig::class);
 
         $replacer = new Prefixer($config, __DIR__);
-        $result = $replacer->replaceNamespace($contents, 'Carbon_Fields\Container', 'BrianHenryIE\Strauss\Carbon_Fields\Container');
+        $result = $replacer->replaceNamespace($contents, 'Carbon_Fields\Container', 'AlexSoft\Strauss\Carbon_Fields\Container');
 
         $this->assertEquals($expected, $result);
     }
@@ -754,18 +754,18 @@ EOD;
     /**
      * Prefix namespaced classnames after return statement.
      *
-     * @see https://github.com/BrianHenryIE/strauss/issues/11
+     * @see https://github.com/fotobank/strauss/issues/11
      */
     public function testReturnedNamespacedClassIsPrefixed()
     {
 
         $contents = 'return \Carbon_Fields\Carbon_Fields::resolve';
-        $expected = 'return \BrianHenryIE\Strauss\Carbon_Fields\Carbon_Fields::resolve';
+        $expected = 'return \AlexSoft\Strauss\Carbon_Fields\Carbon_Fields::resolve';
 
         $config = $this->createMock(StraussConfig::class);
 
         $replacer = new Prefixer($config, __DIR__);
-        $result = $replacer->replaceNamespace($contents, 'Carbon_Fields', 'BrianHenryIE\Strauss\Carbon_Fields');
+        $result = $replacer->replaceNamespace($contents, 'Carbon_Fields', 'AlexSoft\Strauss\Carbon_Fields');
 
         $this->assertEquals($expected, $result);
     }
@@ -773,13 +773,13 @@ EOD;
     /**
      * Prefix namespaced classnames between two tabs and colon.
      *
-     * @see https://github.com/BrianHenryIE/strauss/issues/11
+     * @see https://github.com/fotobank/strauss/issues/11
      */
     public function testNamespacedStaticIsPrefixed()
     {
 
         $contents = '		\\Carbon_Fields\\Carbon_Fields::service( \'legacy_storage\' )->enable()';
-        $expected = '		\\BrianHenryIE\\Strauss\\Carbon_Fields\\Carbon_Fields::service( \'legacy_storage\' )->enable()';
+        $expected = '		\\AlexSoft\\Strauss\\Carbon_Fields\\Carbon_Fields::service( \'legacy_storage\' )->enable()';
 
         $config = $this->createMock(StraussConfig::class);
 
@@ -787,7 +787,7 @@ EOD;
         $result = $replacer->replaceNamespace(
             $contents,
             'Carbon_Fields',
-            'BrianHenryIE\\Strauss\\Carbon_Fields'
+            'AlexSoft\\Strauss\\Carbon_Fields'
         );
 
         $this->assertEquals($expected, $result);
@@ -796,7 +796,7 @@ EOD;
     /**
      * Sometimes the namespace in a string should be replaced, but sometimes not.
      *
-     * @see https://github.com/BrianHenryIE/strauss/issues/15
+     * @see https://github.com/fotobank/strauss/issues/15
      */
     public function testDoNotReplaceInStringThatIsNotCode()
     {
@@ -818,7 +818,7 @@ EOD;
     /**
      *
      *
-     * @see https://github.com/BrianHenryIE/strauss/issues/19
+     * @see https://github.com/fotobank/strauss/issues/19
      *
      */
     public function testDoNotReplaceInVariableNames()
@@ -903,18 +903,18 @@ EOD;
     {
 
         $contents = 'use chillerlan\\QRCode\\{QRCode, QRCodeException};';
-        $expected = 'use BrianHenryIE\\Strauss\\chillerlan\\QRCode\\{QRCode, QRCodeException};';
+        $expected = 'use AlexSoft\\Strauss\\chillerlan\\QRCode\\{QRCode, QRCodeException};';
 
         $config = $this->createMock(StraussConfig::class);
 
         $replacer = new Prefixer($config, __DIR__);
-        $result = $replacer->replaceNamespace($contents, 'chillerlan\\QRCode', 'BrianHenryIE\\Strauss\\chillerlan\\QRCode');
+        $result = $replacer->replaceNamespace($contents, 'chillerlan\\QRCode', 'AlexSoft\\Strauss\\chillerlan\\QRCode');
 
         $this->assertEquals($expected, $result);
     }
 
     /**
-     * @see https://github.com/BrianHenryIE/strauss/issues/25
+     * @see https://github.com/fotobank/strauss/issues/25
      * @see https://gist.github.com/adrianstaffen/e1df25cd62c17d3f1a4697db6c449034
      */
     public function testStaticSimpleCall()
@@ -940,7 +940,7 @@ EOD;
 
 
     /**
-     * @see https://github.com/BrianHenryIE/strauss/issues/25
+     * @see https://github.com/fotobank/strauss/issues/25
      * @see https://gist.github.com/adrianstaffen/e1df25cd62c17d3f1a4697db6c449034
      */
     public function testStaticVariableAssignment()
@@ -965,7 +965,7 @@ EOD;
 
 
     /**
-     * @see https://github.com/BrianHenryIE/strauss/issues/25
+     * @see https://github.com/fotobank/strauss/issues/25
      * @see https://gist.github.com/adrianstaffen/e1df25cd62c17d3f1a4697db6c449034
      */
     public function testStaticIfConditionSingle()
@@ -1006,7 +1006,7 @@ EOD;
 
 
     /**
-     * @see https://github.com/BrianHenryIE/strauss/issues/25
+     * @see https://github.com/fotobank/strauss/issues/25
      * @see https://gist.github.com/adrianstaffen/e1df25cd62c17d3f1a4697db6c449034
      */
     public function testStaticIfConditionMultipleAND()
@@ -1046,7 +1046,7 @@ EOD;
 
 
     /**
-     * @see https://github.com/BrianHenryIE/strauss/issues/25
+     * @see https://github.com/fotobank/strauss/issues/25
      * @see https://gist.github.com/adrianstaffen/e1df25cd62c17d3f1a4697db6c449034
      */
     public function testStaticIfConditionMultipleOR()
@@ -1086,7 +1086,7 @@ EOD;
 
 
     /**
-     * @see https://github.com/BrianHenryIE/strauss/issues/25
+     * @see https://github.com/fotobank/strauss/issues/25
      * @see https://gist.github.com/adrianstaffen/e1df25cd62c17d3f1a4697db6c449034
      */
     public function testStaticArrayNonAssociativeSingle()
@@ -1115,7 +1115,7 @@ EOD;
 
 
     /**
-     * @see https://github.com/BrianHenryIE/strauss/issues/25
+     * @see https://github.com/fotobank/strauss/issues/25
      * @see https://gist.github.com/adrianstaffen/e1df25cd62c17d3f1a4697db6c449034
      */
     public function testStaticArrayNonAssociativeMultipleAND()
@@ -1144,7 +1144,7 @@ EOD;
 
 
     /**
-     * @see https://github.com/BrianHenryIE/strauss/issues/25
+     * @see https://github.com/fotobank/strauss/issues/25
      * @see https://gist.github.com/adrianstaffen/e1df25cd62c17d3f1a4697db6c449034
      */
     public function testStaticArrayNonAssociationMultipleOR()
@@ -1173,7 +1173,7 @@ EOD;
 
 
     /**
-     * @see https://github.com/BrianHenryIE/strauss/issues/25
+     * @see https://github.com/fotobank/strauss/issues/25
      * @see https://gist.github.com/adrianstaffen/e1df25cd62c17d3f1a4697db6c449034
      */
     public function testStaticArrayAssociativeSingle()
@@ -1202,7 +1202,7 @@ EOD;
 
 
     /**
-     * @see https://github.com/BrianHenryIE/strauss/issues/25
+     * @see https://github.com/fotobank/strauss/issues/25
      * @see https://gist.github.com/adrianstaffen/e1df25cd62c17d3f1a4697db6c449034
      */
     public function testStaticArrayAssociativeMultipleAND()
@@ -1230,7 +1230,7 @@ EOD;
 
 
     /**
-     * @see https://github.com/BrianHenryIE/strauss/issues/25
+     * @see https://github.com/fotobank/strauss/issues/25
      * @see https://gist.github.com/adrianstaffen/e1df25cd62c17d3f1a4697db6c449034
      */
     public function testStaticArrayAssociativeMultipleOR()
@@ -1259,7 +1259,7 @@ EOD;
 
 
     /**
-     * @see https://github.com/BrianHenryIE/strauss/issues/26
+     * @see https://github.com/fotobank/strauss/issues/26
      */
     public function testDoublePrefixBug()
     {
@@ -1317,7 +1317,7 @@ EOD;
      *
      * namespace Symfony\Polyfill\Intl\Normalizer_Test_Normalizer;
      *
-     * @see https://github.com/BrianHenryIE/strauss/issues/27
+     * @see https://github.com/fotobank/strauss/issues/27
      *
      * @author BrianHenryIE
      */
@@ -1449,7 +1449,7 @@ EOD;
     }
 
     /**
-     * @see https://github.com/BrianHenryIE/strauss/issues/48
+     * @see https://github.com/fotobank/strauss/issues/48
      * @see https://php.watch/versions/8.1/ReturnTypeWillChange
      */
     public function testItDoesNotPrefixReturnTypeWillChangeAsClassname(): void
@@ -1479,7 +1479,7 @@ EOD;
 
     /**
      *
-     * @see https://github.com/BrianHenryIE/strauss/issues/36
+     * @see https://github.com/fotobank/strauss/issues/36
      *
      */
     public function testItReplacesStaticInsideSquareArray(): void
@@ -1522,7 +1522,7 @@ EOD;
 
     /**
      *
-     * @see https://github.com/BrianHenryIE/strauss/issues/44
+     * @see https://github.com/fotobank/strauss/issues/44
      *
      */
     public function testItReplacesStaticInsideMultilineTernary(): void

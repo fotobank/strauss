@@ -3,7 +3,7 @@
  * The extra/strauss key in composer.json.
  */
 
-namespace BrianHenryIE\Strauss\Composer\Extra;
+namespace AlexSoft\Strauss\Composer\Extra;
 
 use Composer\Composer;
 use Exception;

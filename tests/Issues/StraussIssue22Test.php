@@ -2,21 +2,21 @@
 /**
  * Metapackages!
  *
- * @see https://github.com/BrianHenryIE/strauss/issues/22
+ * @see https://github.com/fotobank/strauss/issues/22
  */
 
-namespace BrianHenryIE\Strauss\Tests\Issues;
+namespace AlexSoft\Strauss\Tests\Issues;
 
-use BrianHenryIE\Strauss\Console\Commands\Compose;
+use AlexSoft\Strauss\Console\Commands\Compose;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 /**
- * @package BrianHenryIE\Strauss\Tests\Issues
+ * @package AlexSoft\Strauss\Tests\Issues
  * @coversNothing
  */
-class StraussIssue22Test extends \BrianHenryIE\Strauss\Tests\Integration\Util\IntegrationTestCase
+class StraussIssue22Test extends \AlexSoft\Strauss\Tests\Integration\Util\IntegrationTestCase
 {
 
     /**
@@ -36,7 +36,7 @@ class StraussIssue22Test extends \BrianHenryIE\Strauss\Tests\Integration\Util\In
 
         $composerJsonString = <<<'EOD'
 {
-  "name": "brianhenryie/strauss-issue-22",
+  "name": "alexsoft/strauss-issue-22",
   "require": {
     "omnipay/common": "*"
   },
@@ -91,7 +91,7 @@ EOD;
     {
         $composerJsonString = <<<'EOD'
 {
-  "name": "brianhenryie/strauss-issue-22",
+  "name": "alexsoft/strauss-issue-22",
   "require": {
     "league/omnipay": "*"
   },

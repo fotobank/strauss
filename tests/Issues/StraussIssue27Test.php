@@ -2,20 +2,20 @@
 /**
  * Problem with too many replacements due to common class, domain, namespace names, "Normalizer".
  *
- * @see https://github.com/BrianHenryIE/strauss/issues/27
+ * @see https://github.com/AlexSoft/strauss/issues/27
  */
 
-namespace BrianHenryIE\Strauss\Tests\Issues;
+namespace AlexSoft\Strauss\Tests\Issues;
 
-use BrianHenryIE\Strauss\Console\Commands\Compose;
+use AlexSoft\Strauss\Console\Commands\Compose;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 /**
- * @package BrianHenryIE\Strauss\Tests\Issues
+ * @package AlexSoft\Strauss\Tests\Issues
  * @coversNothing
  */
-class StraussIssue27Test extends \BrianHenryIE\Strauss\Tests\Integration\Util\IntegrationTestCase
+class StraussIssue27Test extends \AlexSoft\Strauss\Tests\Integration\Util\IntegrationTestCase
 {
 
     /**

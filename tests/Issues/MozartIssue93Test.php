@@ -3,13 +3,13 @@
  * @see https://github.com/coenjacobs/mozart/blob/3b1243ca8505fa6436569800dc34269178930f39/tests/replacers/ClassmapReplacerIntegrationTest.php#L67-L109
  */
 
-namespace BrianHenryIE\Strauss\Tests\Issues;
+namespace AlexSoft\Strauss\Tests\Issues;
 
-use BrianHenryIE\Strauss\Console\Commands\Compose;
+use AlexSoft\Strauss\Console\Commands\Compose;
 
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use BrianHenryIE\Strauss\Tests\Integration\Util\IntegrationTestCase;
+use AlexSoft\Strauss\Tests\Integration\Util\IntegrationTestCase;
 
 /**
  * Class MozartIssue93Test
@@ -33,17 +33,17 @@ class MozartIssue93Test extends IntegrationTestCase
 
         $composerJsonString = <<<'EOD'
 {
-	"name": "brianhenryie/mozart-issue-93",
+	"name": "alexsoft/mozart-issue-93",
 	"repositories": [{
-		"url": "https://github.com/BrianHenryIE/bh-wp-logger",
+		"url": "https://github.com/fotobank/bh-wp-logger",
 		"type": "git"
 	}],
 	"require": {
-		"brianhenryie/wp-logger": "dev-master#dd2bb0665e01e11b282178e76a2334198d3860c5"
+		"alexsoft/wp-logger": "dev-master#dd2bb0665e01e11b282178e76a2334198d3860c5"
 	},
 	"extra": {
 		"strauss": {
-			"namespace_prefix": "BrianHenryIE\\Strauss\\",
+			"namespace_prefix": "AlexSoft\\Strauss\\",
 			"classmap_prefix": "BrianHenryIE_Strauss_"
 		}
 	},
@@ -64,7 +64,7 @@ EOD;
 
         $mozartCompose->run($inputInterfaceMock, $outputInterfaceMock);
 
-        $php_string = file_get_contents($this->testsWorkingDir .'strauss/brianhenryie/wp-logger/src/class-logger.php');
+        $php_string = file_get_contents($this->testsWorkingDir .'strauss/alexsoft/wp-logger/src/class-logger.php');
 
         // Confirm problem is gone.
         $this->assertStringNotContainsString('class BrianHenryIE_Strauss_Logger extends', $php_string);

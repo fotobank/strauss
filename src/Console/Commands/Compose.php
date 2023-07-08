@@ -1,17 +1,17 @@
 <?php
 
-namespace BrianHenryIE\Strauss\Console\Commands;
+namespace AlexSoft\Strauss\Console\Commands;
 
-use BrianHenryIE\Strauss\ChangeEnumerator;
-use BrianHenryIE\Strauss\Autoload;
-use BrianHenryIE\Strauss\Cleanup;
-use BrianHenryIE\Strauss\Composer\ComposerPackage;
-use BrianHenryIE\Strauss\Composer\ProjectComposerPackage;
-use BrianHenryIE\Strauss\Copier;
-use BrianHenryIE\Strauss\FileEnumerator;
-use BrianHenryIE\Strauss\Licenser;
-use BrianHenryIE\Strauss\Prefixer;
-use BrianHenryIE\Strauss\Composer\Extra\StraussConfig;
+use AlexSoft\Strauss\ChangeEnumerator;
+use AlexSoft\Strauss\Autoload;
+use AlexSoft\Strauss\Cleanup;
+use AlexSoft\Strauss\Composer\ComposerPackage;
+use AlexSoft\Strauss\Composer\ProjectComposerPackage;
+use AlexSoft\Strauss\Copier;
+use AlexSoft\Strauss\FileEnumerator;
+use AlexSoft\Strauss\Licenser;
+use AlexSoft\Strauss\Prefixer;
+use AlexSoft\Strauss\Composer\Extra\StraussConfig;
 use Exception;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;

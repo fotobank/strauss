@@ -1,9 +1,9 @@
 <?php
 
-namespace BrianHenryIE\Strauss\Tests\Unit\Console;
+namespace AlexSoft\Strauss\Tests\Unit\Console;
 
-use BrianHenryIE\Strauss\Console\Application;
-use BrianHenryIE\Strauss\Console\Commands\Compose;
+use AlexSoft\Strauss\Console\Application;
+use AlexSoft\Strauss\Console\Commands\Compose;
 use PHPUnit\Framework\TestCase;
 
 class ApplicationTest extends TestCase

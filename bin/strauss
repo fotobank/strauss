@@ -24,6 +24,6 @@ call_user_func(function ($version) {
         include __DIR__ . '/../vendor/autoload.php';
     }
 
-    $app = new BrianHenryIE\Strauss\Console\Application($version);
+    $app = new AlexSoft\Strauss\Console\Application($version);
     $app->run();
 }, '0.14.2');

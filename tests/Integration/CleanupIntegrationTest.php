@@ -1,9 +1,9 @@
 <?php
-namespace BrianHenryIE\Strauss\Tests\Integration;
+namespace AlexSoft\Strauss\Tests\Integration;
 
 /**
  * Class CleanupIntegrationTest
- * @package BrianHenryIE\Strauss\Tests\Integration
+ * @package AlexSoft\Strauss\Tests\Integration
  * @coversNothing
  */
 class CleanupIntegrationTest

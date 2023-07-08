@@ -1,8 +1,8 @@
 <?php
 
-namespace BrianHenryIE\Strauss\Console;
+namespace AlexSoft\Strauss\Console;
 
-use BrianHenryIE\Strauss\Console\Commands\Compose;
+use AlexSoft\Strauss\Console\Commands\Compose;
 use Symfony\Component\Console\Application as BaseApplication;
 
 class Application extends BaseApplication

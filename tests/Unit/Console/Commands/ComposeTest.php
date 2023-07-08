@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace BrianHenryIE\Strauss\Tests\Unit\Console\Commands;
+namespace AlexSoft\Strauss\Tests\Unit\Console\Commands;
 
-use BrianHenryIE\Strauss\Console\Commands\Compose;
+use AlexSoft\Strauss\Console\Commands\Compose;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;

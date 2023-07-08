@@ -8,18 +8,18 @@
  * @author BrianHenryIE
  */
 
-namespace BrianHenryIE\Strauss\Tests\Issues;
+namespace AlexSoft\Strauss\Tests\Issues;
 
-use BrianHenryIE\Strauss\Console\Commands\Compose;
+use AlexSoft\Strauss\Console\Commands\Compose;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 /**
  * Class MozartIssue130Test
- * @package BrianHenryIE\Strauss\Tests\Issues
+ * @package AlexSoft\Strauss\Tests\Issues
  * @coversNothing
  */
-class MozartIssue130Test extends \BrianHenryIE\Strauss\Tests\Integration\Util\IntegrationTestCase
+class MozartIssue130Test extends \AlexSoft\Strauss\Tests\Integration\Util\IntegrationTestCase
 {
 
     /**
@@ -30,7 +30,7 @@ class MozartIssue130Test extends \BrianHenryIE\Strauss\Tests\Integration\Util\In
 
         $composerJsonString = <<<'EOD'
 {
-  "name": "brianhenryie/mozart-issue-130",
+  "name": "fotobank/mozart-issue-130",
   "require": {
     "htmlburger/carbon-fields": "*"
   },

@@ -1,22 +1,22 @@
 <?php
 /**
  *
- * @see https://github.com/BrianHenryIE/strauss/issues/37
+ * @see https://github.com/fotobank/strauss/issues/37
  */
 
-namespace BrianHenryIE\Strauss\Tests\Issues;
+namespace AlexSoft\Strauss\Tests\Issues;
 
-use BrianHenryIE\Strauss\Composer\Extra\StraussConfig;
-use BrianHenryIE\Strauss\Console\Commands\Compose;
-use BrianHenryIE\Strauss\Prefixer;
+use AlexSoft\Strauss\Composer\Extra\StraussConfig;
+use AlexSoft\Strauss\Console\Commands\Compose;
+use AlexSoft\Strauss\Prefixer;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 /**
- * @package BrianHenryIE\Strauss\Tests\Issues
+ * @package AlexSoft\Strauss\Tests\Issues
  * @coversNothing
  */
-class StraussIssue37Test extends \BrianHenryIE\Strauss\Tests\Integration\Util\IntegrationTestCase
+class StraussIssue37Test extends \AlexSoft\Strauss\Tests\Integration\Util\IntegrationTestCase
 {
 
     /**
@@ -26,14 +26,14 @@ class StraussIssue37Test extends \BrianHenryIE\Strauss\Tests\Integration\Util\In
 
         $composerJsonString = <<<'EOD'
 {
-  "name": "brianhenryie/strauss-psr-4-path-array",
+  "name": "alexsoft/strauss-psr-4-path-array",
   "minimum-stability": "dev",
   "require": {
     "automattic/woocommerce": "*"
   },
   "extra": {
     "strauss": {
-      "namespace_prefix": "BrianHenryIE\\Strauss\\",
+      "namespace_prefix": "AlexSoft\\Strauss\\",
       "classmap_prefix": "BH_Strauss_"
     }
   }

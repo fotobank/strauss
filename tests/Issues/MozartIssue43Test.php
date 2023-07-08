@@ -6,16 +6,16 @@
  * "File already exists at path: strauss/symfony/event-dispatcher/Tests/EventTest.php"
  */
 
-namespace BrianHenryIE\Strauss\Tests\Issues;
+namespace AlexSoft\Strauss\Tests\Issues;
 
-use BrianHenryIE\Strauss\Console\Commands\Compose;
-use BrianHenryIE\Strauss\Tests\Integration\Util\IntegrationTestCase;
+use AlexSoft\Strauss\Console\Commands\Compose;
+use AlexSoft\Strauss\Tests\Integration\Util\IntegrationTestCase;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 /**
  * Class MozartIssue43Test
- * @package BrianHenryIE\Strauss\Tests\Issues
+ * @package AlexSoft\Strauss\Tests\Issues
  * @coversNothing
  */
 class MozartIssue43Test extends IntegrationTestCase
@@ -33,13 +33,13 @@ class MozartIssue43Test extends IntegrationTestCase
 
         $composerJsonString = <<<'EOD'
 {
-	"name": "brianhenryie/mozart-issue-43",
+	"name": "alexsoft/mozart-issue-43",
 	"require": {
 		"aws/aws-sdk-php": "2.8.31"
 	},
 	"extra": {
 		"strauss": {
-			"namespace_prefix": "BrianHenryIE\\Strauss\\",
+			"namespace_prefix": "AlexSoft\\Strauss\\",
 			"classmap_prefix": "BrianHenryIE_Strauss_",
 			"override_autoload": {
 				"guzzle/guzzle": {
