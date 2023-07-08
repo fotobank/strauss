@@ -38,9 +38,10 @@ class ProjectComposerPackage extends ComposerPackage
         }
 
         $vendorDirectory = $this->composer->getConfig()->get('vendor-dir');
+	    $vendorDirectory = str_replace(['\\','/'], DIRECTORY_SEPARATOR, $vendorDirectory);
         if (is_string($vendorDirectory)) {
             $vendorDirectory = str_replace($absolutePathDir, '', (string) $vendorDirectory);
-            $this->vendorDirectory = $vendorDirectory;
+            $this->vendorDirectory = $vendorDirectory . DIRECTORY_SEPARATOR;
         } else {
             $this->vendorDirectory = 'vendor' . DIRECTORY_SEPARATOR;
         }

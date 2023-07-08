@@ -72,7 +72,7 @@ class Licenser
         $this->includeModifiedDate = $config->isIncludeModifiedDate();
         $this->includeAuthor = $config->isIncludeAuthor();
 
-        $this->filesystem = new Filesystem(new Local('/'));
+        $this->filesystem = new Filesystem(new Local($workingDir));
     }
 
     public function copyLicenses(): void
@@ -80,23 +80,22 @@ class Licenser
         $this->findLicenseFiles();
 
         foreach ($this->getDiscoveredLicenseFiles() as $licenseFile) {
-            $targetLicenseFile = $this->targetDirectory . $licenseFile;
 
+            $targetLicenseFile = $this->targetDirectory . $licenseFile;
             $targetLicenseFileDir = dirname($targetLicenseFile);
 
             // Don't try copy it if it's already there.
             if ($this->filesystem->has($targetLicenseFile)) {
                 continue;
             }
-
             // Don't add licenses to non-existent directories – there were no files copied there!
             if (! $this->filesystem->has($targetLicenseFileDir)) {
                 continue;
             }
 
             $this->filesystem->copy(
-                $this->vendorDir . $licenseFile,
-                $targetLicenseFile
+	            $this->vendorDir . $licenseFile,
+	            $targetLicenseFile
             );
         }
     }
@@ -125,14 +124,11 @@ class Licenser
 
             /** @var \SplFileInfo $foundFile */
             foreach ($finder as $foundFile) {
+
                 $filePath = $foundFile->getPathname();
+                $relativeFilepath = str_replace($this->workingDir . $prefixToRemove, '', $filePath);
 
-//                $relativeFilepath = str_replace($prefixToRemove, '', $filePath);
-
-                // Replace multiple \ and/or / with OS native DIRECTORY_SEPARATOR.
-                $filePath = preg_replace('#[\\\/]+#', DIRECTORY_SEPARATOR, $filePath);
-
-                $this->discoveredLicenseFiles[$filePath] = $dependency->getPackageName();
+                $this->discoveredLicenseFiles[$relativeFilepath] = $dependency->getPackageName();
             }
         }
     }
@@ -150,6 +146,7 @@ class Licenser
 
         // e.g. "25-April-2021".
         $date = gmdate("d-F-Y", time());
+	    $this->filesystem->getAdapter()->setPathPrefix('');
 
         foreach ($modifiedFiles as $relativeFilePath => $package) {
             $filepath = $this->workingDir . $this->targetDirectory . $relativeFilePath;

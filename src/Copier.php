@@ -16,6 +16,8 @@ namespace BrianHenryIE\Strauss;
 use BrianHenryIE\Strauss\Composer\ComposerPackage;
 use League\Flysystem\Adapter\Local;
 use League\Flysystem\Filesystem;
+use function basename;
+use function dirname;
 
 class Copier
 {
@@ -56,7 +58,7 @@ class Copier
 
         $this->vendorDir = $vendorDir;
 
-        $this->filesystem = new Filesystem(new Local('/'));
+        $this->filesystem = new Filesystem(new Local($workingDir));
     }
 
     /**
@@ -67,12 +69,13 @@ class Copier
      */
     public function prepareTarget(): void
     {
-        if (! $this->filesystem->has($this->absoluteTargetDir)) {
-            $this->filesystem->createDir($this->absoluteTargetDir);
+	    $TargetDir = basename($this->absoluteTargetDir);
+        if (! $this->filesystem->has($TargetDir)) {
+            $this->filesystem->createDir($TargetDir);
         } else {
-            foreach (array_keys($this->files) as $targetRelativeFilepath) {
-                $targetAbsoluteFilepath = $this->absoluteTargetDir . $targetRelativeFilepath;
-
+	        $this->filesystem->getAdapter()->setPathPrefix('');
+	        foreach (array_keys($this->files) as $targetRelativeFilepath) {
+	            $targetAbsoluteFilepath = $this->absoluteTargetDir . $targetRelativeFilepath;
                 if ($this->filesystem->has($targetAbsoluteFilepath)) {
                     $this->filesystem->delete($targetAbsoluteFilepath);
                 }
@@ -86,6 +89,7 @@ class Copier
      */
     public function copy(): void
     {
+	    $this->filesystem->getAdapter()->setPathPrefix('');
 
         foreach ($this->files as $targetRelativeFilepath => $fileArray) {
             $sourceAbsoluteFilepath = $fileArray['sourceAbsoluteFilepath'];
