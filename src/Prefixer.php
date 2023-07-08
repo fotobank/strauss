@@ -70,6 +70,7 @@ class Prefixer
                     continue 2;
                 }
             }
+
             $targetRelativeFilepathFromProject = $this->targetDirectory. $targetRelativeFilepath;
 
             // Throws an exception, but unlikely to happen.
@@ -133,7 +134,7 @@ class Prefixer
             (
             ^\s*                           # start of the string
             |\\n\s*                        # start of the line
-            |namespace\s+                  # the namespace keyword
+            |(^\s*namespace|[\r\n]+\s*namespace)\s+                  # the namespace keyword
             |use\s+                        # the use keyword
             |new\s+
             |static\s+
@@ -174,7 +175,7 @@ class Prefixer
             $singleBackslash = '\\';
             $doubleBackslash = '\\\\';
 
-            if (false !== strpos($matches[2], $doubleBackslash)) {
+            if (false !== strpos($matches[3], $doubleBackslash)) {
                 $originalNamespace = str_replace($singleBackslash, $doubleBackslash, $originalNamespace);
                 $replacement = str_replace($singleBackslash, $doubleBackslash, $replacement);
             }
@@ -219,21 +220,21 @@ class Prefixer
         // This could be more specific if we could enumerate all preceding and proceeding words ("new", "("...).
         $pattern = '
 			/											# Start the pattern
-				namespace\s+[a-zA-Z0-9_\x7f-\xff\\\\]+\s*{(.*?)(namespace|\z) 
+				(^\s*namespace|\r\n\s*namespace)\s+[a-zA-Z0-9_\x7f-\xff\\\\]+\s*{(.*?)(namespace|\z) 
 														# Look for a preceeding namespace declaration, up until a 
 														# potential second namespace declaration.
 				|										# if found, match that much before continuing the search on
 								    		        	# the remainder of the string.
-                namespace\s+[a-zA-Z0-9_\x7f-\xff\\\\]+\s*;(.*) # Skip lines just declaring the namespace.
+                (^\s*namespace|\r\n\s*namespace)\s+[a-zA-Z0-9_\x7f-\xff\\\\]+\s*;(.*) # Skip lines just declaring the namespace.
                 |		        	
 				([^a-zA-Z0-9_\x7f-\xff\$\\\])('. $searchClassname . ')([^a-zA-Z0-9_\x7f-\xff\\\]) # outside a namespace the class will not be prefixed with a slash
 				
-			/xs'; //                                    # x: ignore whitespace in regex.  s dot matches newline
+			/xsm'; //                                    # x: ignore whitespace in regex.  s dot matches newline, m: ^ and $ match start and end of line
 
         $replacingFunction = function ($matches) use ($originalClassname, $classnamePrefix) {
 
             // If we're inside a namespace other than the global namespace:
-            if (1 === preg_match('/^namespace\s+[a-zA-Z0-9_\x7f-\xff\\\\]+[;{\s\n]{1}.*/', $matches[0])) {
+            if (1 === preg_match('/\s*namespace\s+[a-zA-Z0-9_\x7f-\xff\\\\]+[;{\s\n]{1}.*/', $matches[0])) {
                 $updated = $this->replaceGlobalClassInsideNamedNamespace(
                     $matches[0],
                     $originalClassname,

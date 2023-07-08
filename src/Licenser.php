@@ -80,22 +80,23 @@ class Licenser
         $this->findLicenseFiles();
 
         foreach ($this->getDiscoveredLicenseFiles() as $licenseFile) {
-
             $targetLicenseFile = $this->targetDirectory . $licenseFile;
+
             $targetLicenseFileDir = dirname($targetLicenseFile);
 
             // Don't try copy it if it's already there.
             if ($this->filesystem->has($targetLicenseFile)) {
                 continue;
             }
+
             // Don't add licenses to non-existent directories – there were no files copied there!
             if (! $this->filesystem->has($targetLicenseFileDir)) {
                 continue;
             }
 
             $this->filesystem->copy(
-	            $this->vendorDir . $licenseFile,
-	            $targetLicenseFile
+                $this->vendorDir . $licenseFile,
+                $targetLicenseFile
             );
         }
     }
@@ -125,8 +126,8 @@ class Licenser
             /** @var \SplFileInfo $foundFile */
             foreach ($finder as $foundFile) {
 
-                $filePath = $foundFile->getPathname();
-                $relativeFilepath = str_replace($this->workingDir . $prefixToRemove, '', $filePath);
+	            $filePath = $foundFile->getPathname();
+	            $relativeFilepath = str_replace($this->workingDir . $prefixToRemove, '', $filePath);
 
                 $this->discoveredLicenseFiles[$relativeFilepath] = $dependency->getPackageName();
             }

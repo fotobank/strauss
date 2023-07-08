@@ -26,8 +26,8 @@ class Cleanup
     {
         $this->vendorDirectory = $config->getVendorDirectory();
 
-        $this->isDeleteVendorFiles = $config->isDeleteVendorFiles();
-        $this->isDeleteVendorPackages = $config->isDeleteVendorPackages();
+        $this->isDeleteVendorFiles = $config->isDeleteVendorFiles() && $config->getTargetDirectory() !== $config->getVendorDirectory();
+        $this->isDeleteVendorPackages = $config->isDeleteVendorPackages() && $config->getTargetDirectory() !== $config->getVendorDirectory();
 
         $this->filesystem = new Filesystem(new Local($workingDir));
     }
@@ -43,8 +43,6 @@ class Cleanup
         if (!$this->isDeleteVendorPackages && !$this->isDeleteVendorFiles) {
             return;
         }
-
-        // TODO Don't do this if vendor is the target dir (i.e. in-situ updating).
 
         if ($this->isDeleteVendorPackages) {
             $package_dirs = array_unique(array_map(function (string $relativeFilePath): string {

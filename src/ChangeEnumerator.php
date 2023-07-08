@@ -131,7 +131,7 @@ class ChangeEnumerator
 
         // If the entire file is under one namespace, all we want is the namespace.
         $singleNamespacePattern = '/
-            namespace\s+([0-9A-Za-z_\x7f-\xff\\\\]+)[\s\S]*;    # A single namespace in the file.... should return
+            [\r\n]+\s*namespace\s+([0-9A-Za-z_\x7f-\xff\\\\]+)[\s\S]*;    # A single namespace in the file.... should return
         /x';
         if (1 === preg_match($singleNamespacePattern, $contents, $matches)) {
             $this->addDiscoveredNamespaceChange($matches[1]);
@@ -153,7 +153,7 @@ class ChangeEnumerator
         return preg_replace_callback(
             '
 			~											# Start the pattern
-				namespace\s+([a-zA-Z0-9_\x7f-\xff\\\\]+)[;{\s\n]{1}[\s\S]*?(?=namespace|$) 
+				[\r\n]+\s*namespace\s+([a-zA-Z0-9_\x7f-\xff\\\\]+)[;{\s\n]{1}[\s\S]*?(?=namespace|$) 
 														# Look for a preceeding namespace declaration, 
 														# followed by a semicolon, open curly bracket, space or new line
 														# up until a 
@@ -172,7 +172,7 @@ class ChangeEnumerator
             function ($matches) {
 
                 // If we're inside a namespace other than the global namespace:
-                if (1 === preg_match('/^namespace\s+[a-zA-Z0-9_\x7f-\xff\\\\]+[;{\s\n]{1}.*/', $matches[0])) {
+                if (1 === preg_match('/\s*namespace\s+[a-zA-Z0-9_\x7f-\xff\\\\]+[;{\s\n]{1}.*/', $matches[0])) {
                     $this->addDiscoveredNamespaceChange($matches[1]);
                     return $matches[0];
                 }

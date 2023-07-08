@@ -8,10 +8,10 @@ A fork of [Mozart](https://github.com/coenjacobs/mozart/). For [Composer](https:
 
 The primary use case is WordPress plugins, where different plugins active in a single WordPress install could each include different versions of the same library. The version of the class loaded would be whichever plugin registered the autoloader first, and all subsequent instantiations of the class will use that version, with potentially unpredictable behaviour and missing functionality.    
 
-> ⚠️ **Sponsorship**: I don't want your money. [Please write a unit test to help the project](https://brianhenryie.github.io/strauss/).
 
 ## Breaking Changes
 
+* v0.14.2 – fixes according to the master branch BrianHenryIE/strauss
 * v0.14.1 – fixed bugs with file paths in Windows
 * v0.14.0 – `psr/*` packages no longer excluded by default
 * v0.12.0 – default output `target_directory` changes from `strauss` to `vendor-prefixed`
