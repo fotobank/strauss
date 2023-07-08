@@ -12,6 +12,7 @@ The primary use case is WordPress plugins, where different plugins active in a s
 
 ## Breaking Changes
 
+* v0.14.1 – fixed bugs with file paths in Windows
 * v0.14.0 – `psr/*` packages no longer excluded by default
 * v0.12.0 – default output `target_directory` changes from `strauss` to `vendor-prefixed`
 
