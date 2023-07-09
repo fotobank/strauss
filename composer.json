@@ -1,5 +1,5 @@
 {
-    "name": "alexsoft/strauss",
+    "name": "fotobank/strauss",
     "description": "Composes all dependencies as a package inside a WordPress plugin",
     "authors": [
         {
