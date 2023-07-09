@@ -1,5 +1,3 @@
-[![Build, tag and attach releases](https://github.com/fotobank/strauss/actions/workflows/release.yml/badge.svg)](https://github.com/fotobank/strauss/actions/workflows/release.yml)
-
 # Strauss
 
 A tool to prefix namespaces and classnames in PHP files to avoid autoloading collisions.
