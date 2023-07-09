@@ -44,7 +44,7 @@ jobs:
       - name: Sign the PHAR
         run: |
           ls strauss.phar
-          gpg --local-user jurii@mail.ru \
+          gpg --local-user aleksjurii@gmail.com \
               --batch \
               --yes \
               --passphrase="${{ secrets.PASSPHRASE }}" \
