@@ -3,6 +3,18 @@
  * Object for getting typed values from composer.json.
  *
  * Use this for dependencies. Use ProjectComposerPackage for the primary composer.json.
+ *
+ * MIT states: "The above copyright notice and this permission notice shall be
+ * included in all copies or substantial portions of the Software."
+ *
+ * GPL states: "You must cause the modified files to carry prominent notices stating
+ * that you changed the files and the date of any change."
+ *
+ *
+ * @author BrianHenryIE
+ * @author Alex Yury
+ *
+ * @license MIT
  */
 
 namespace AlexSoft\Strauss\Composer;
@@ -10,7 +22,6 @@ namespace AlexSoft\Strauss\Composer;
 use Composer\Composer;
 use Composer\Factory;
 use Composer\IO\NullIO;
-use stdClass;
 
 class ComposerPackage
 {

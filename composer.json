@@ -1,6 +1,6 @@
 {
     "name": "fotobank/strauss",
-    "description": "Composes all dependencies as a package inside a WordPress plugin",
+    "description": "Changes the class namespaces from vendor and moves all dependencies to a separate directory inside the WordPress plugin.",
     "authors": [
         {
             "name": "Alex Yury",
@@ -15,6 +15,16 @@
             "email": "coenjacobs@gmail.com"
         }
     ],
+    "autoload": {
+        "psr-4": {
+            "AlexSoft\\Strauss\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "AlexSoft\\Strauss\\Tests\\": "tests/"
+        }
+    },
     "bin": ["bin/strauss"],
     "minimum-stability": "dev",
     "prefer-stable": true,
@@ -25,16 +35,6 @@
         "symfony/console": "^4|^5",
         "symfony/finder": "^4|^5",
         "league/flysystem": "^1.0"
-    },
-    "autoload": {
-        "psr-4": {
-            "AlexSoft\\Strauss\\": "src/"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "AlexSoft\\Strauss\\Tests\\": "tests/"
-        }
     },
     "require-dev": {
         "ext-json": "*",
@@ -56,6 +56,7 @@
         ]
     },
     "replace":{
-        "coenjacobs/mozart": "*"
+        "coenjacobs/mozart": "*",
+        "brianhenryie/strauss": "*"
     }
 }

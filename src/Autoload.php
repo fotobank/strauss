@@ -2,7 +2,18 @@
 /**
  * Generate an `autoload.php` file in the root of the target directory.
  *
+ * MIT states: "The above copyright notice and this permission notice shall be
+ * included in all copies or substantial portions of the Software."
+ *
+ * GPL states: "You must cause the modified files to carry prominent notices stating
+ * that you changed the files and the date of any change."
+ *
  * @see \Composer\Autoload\ClassMapGenerator
+ *
+ * @author BrianHenryIE
+ * @author Alex Yury
+ *
+ * @license MIT
  */
 
 namespace AlexSoft\Strauss;

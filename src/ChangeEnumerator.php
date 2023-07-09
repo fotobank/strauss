@@ -3,6 +3,18 @@
  * The purpose of this class is only to find changes that should be made.
  * i.e. classes and namespaces to change.
  * Those recorded are updated in a later step.
+ *
+ * MIT states: "The above copyright notice and this permission notice shall be
+ * included in all copies or substantial portions of the Software."
+ *
+ * GPL states: "You must cause the modified files to carry prominent notices stating
+ * that you changed the files and the date of any change."
+ *
+ *
+ * @author BrianHenryIE
+ * @author Alex Yury
+ *
+ * @license MIT
  */
 
 namespace AlexSoft\Strauss;

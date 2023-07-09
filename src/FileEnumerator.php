@@ -1,9 +1,21 @@
 <?php
 /**
  * Build a list of files from the composer autoloaders.
- *
  * Also record the `files` autoloaders.
+ *
+ * MIT states: "The above copyright notice and this permission notice shall be
+ * included in all copies or substantial portions of the Software."
+ *
+ * GPL states: "You must cause the modified files to carry prominent notices stating
+ * that you changed the files and the date of any change."
+ *
+ *
+ * @author BrianHenryIE
+ * @author Alex Yury
+ *
+ * @license MIT
  */
+
 
 namespace AlexSoft\Strauss;
 

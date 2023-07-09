@@ -5,8 +5,16 @@
  *
  * TODO: Exclude files list.
  *
+ * MIT states: "The above copyright notice and this permission notice shall be
+ * included in all copies or substantial portions of the Software."
+ *
+ * GPL states: "You must cause the modified files to carry prominent notices stating
+ * that you changed the files and the date of any change."
+ *
+ *
  * @author CoenJacobs
  * @author BrianHenryIE
+ * @author Alex Yury
  *
  * @license MIT
  */
@@ -67,13 +75,13 @@ class Copier
      */
     public function prepareTarget(): void
     {
-	    $TargetDir = basename($this->absoluteTargetDir);
-	    if (! $this->filesystem->has($TargetDir)) {
-		    $this->filesystem->createDir($TargetDir);
+        $TargetDir = basename($this->absoluteTargetDir);
+        if (! $this->filesystem->has($TargetDir)) {
+            $this->filesystem->createDir($TargetDir);
         } else {
-		    $this->filesystem->getAdapter()->setPathPrefix('');
-		    foreach (array_keys($this->files) as $targetRelativeFilepath) {
-			    $targetAbsoluteFilepath = $this->absoluteTargetDir . $targetRelativeFilepath;
+            $this->filesystem->getAdapter()->setPathPrefix('');
+            foreach (array_keys($this->files) as $targetRelativeFilepath) {
+                $targetAbsoluteFilepath = $this->absoluteTargetDir . $targetRelativeFilepath;
 
                 if ($this->filesystem->has($targetAbsoluteFilepath)) {
                     $this->filesystem->delete($targetAbsoluteFilepath);
@@ -89,7 +97,7 @@ class Copier
     public function copy(): void
     {
 
-	    $this->filesystem->getAdapter()->setPathPrefix('');
+        $this->filesystem->getAdapter()->setPathPrefix('');
 
         foreach ($this->files as $targetRelativeFilepath => $fileArray) {
             $sourceAbsoluteFilepath = $fileArray['sourceAbsoluteFilepath'];
