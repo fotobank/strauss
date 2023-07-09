@@ -1,5 +1,3 @@
-[![PHPUnit ](.github/coverage.svg)](https://fotobank.github.io/strauss/)
-
 # Strauss
 
 A tool to prefix namespaces and classnames in PHP files to avoid autoloading collisions.
