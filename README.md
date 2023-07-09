@@ -21,10 +21,10 @@ Require as normal with Composer:
 
 and use `vendor/bin/strauss` to execute.
 
-Or, download `strauss.phar` from [releases](https://github.com/fotobank/strauss/releases/),
+Or(@todo), download `strauss.phar` from [releases](https://github.com/fotobank/strauss/releases/),
 
 ```shell
-curl -o strauss.phar -L -C - https://github.com/BrianHenryIE/strauss/releases/download/0.14.0/strauss.phar
+curl -o strauss.phar -L -C - https://github.com/fotobank/strauss/releases/download/0.14.0/strauss.phar
 ```
 
 Then run it from the root of your project folder using `php strauss.phar`.
@@ -42,6 +42,15 @@ Its use should be automated in Composer scripts.
     ],
     "post-update-cmd": [
         "@strauss"
+    ]
+}
+```
+or
+
+```json
+"scripts": {
+    "strauss": [
+        "@php strauss.phar"
     ]
 }
 ```
@@ -135,7 +144,6 @@ If you prefer to use Composer's autoloader, add your `target_directory` (default
 
 ## Motivation & Comparison to Mozart
 
-I was happy to make PRs to Mozart to fix bugs, but they weren't being reviewed and merged. At the time of writing, somewhere approaching 50% of Mozart's code [was written by me](https://github.com/coenjacobs/mozart/graphs/contributors) with an additional [nine open PRs](https://github.com/coenjacobs/mozart/pulls?q=is%3Apr+author%3ABrianHenryIE+) and the majority of issues' solutions [provided by me](https://github.com/coenjacobs/mozart/issues?q=is%3Aissue+). This fork is a means to merge all outstanding bugfixes I've written and make some more drastic changes I see as a better approach to the problem.
 
 Benefits over Mozart:
 
