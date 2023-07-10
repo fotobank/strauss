@@ -41,6 +41,9 @@ jobs:
           gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
           passphrase: ${{ secrets.PASSPHRASE }}
       - run: export GPG_TTY=$(tty)
+      - name: List files in the repository
+        run: |
+          ls ${{ github.workspace }}
       - name: Sign the PHAR
         run: |
           ls strauss.phar
