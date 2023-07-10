@@ -43,6 +43,7 @@ jobs:
 
       - name: Sign the PHAR
         run: |
+          export GPG_TTY=$(tty)
           ls strauss.phar
           gpg --local-user aleksjurii@gmail.com \
               --batch \
