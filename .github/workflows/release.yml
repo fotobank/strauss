@@ -40,10 +40,9 @@ jobs:
         with:
           gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
           passphrase: ${{ secrets.PASSPHRASE }}
-
+      - run: export GPG_TTY=$(tty)
       - name: Sign the PHAR
         run: |
-          export GPG_TTY=$(tty)
           ls strauss.phar
           gpg --local-user aleksjurii@gmail.com \
               --batch \
