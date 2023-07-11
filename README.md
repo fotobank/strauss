@@ -1,4 +1,10 @@
-# Strauss
+# fotobank/strauss
+
+[![gh_last_release_svg]][gh_last_release_url]
+
+[gh_last_release_svg]: https://img.shields.io/github/v/release/meeDamian/github-release?sort=semver
+[gh_last_release_url]: https://github.com/fotobank/github-release/releases/latest
+
 
 A tool to prefix namespaces and classnames in PHP files to avoid autoloading collisions.
 
