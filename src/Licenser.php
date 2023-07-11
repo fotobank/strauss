@@ -127,9 +127,8 @@ class Licenser
 
             /** @var \SplFileInfo $foundFile */
             foreach ($finder as $foundFile) {
-
-	            $filePath = $foundFile->getPathname();
-	            $relativeFilepath = str_replace($this->workingDir . $prefixToRemove, '', $filePath);
+                $filePath = $foundFile->getPathname();
+                $relativeFilepath = str_replace($this->workingDir . $prefixToRemove, '', $filePath);
 
                 $this->discoveredLicenseFiles[$relativeFilepath] = $dependency->getPackageName();
             }
@@ -149,7 +148,7 @@ class Licenser
 
         // e.g. "25-April-2021".
         $date = gmdate("d-F-Y", time());
-	    $this->filesystem->getAdapter()->setPathPrefix('');
+        $this->filesystem->getAdapter()->setPathPrefix('');
 
         foreach ($modifiedFiles as $relativeFilePath => $package) {
             $filepath = $this->workingDir . $this->targetDirectory . $relativeFilePath;
