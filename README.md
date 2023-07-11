@@ -8,7 +8,7 @@
 
 A tool to prefix namespaces and classnames in PHP files to avoid autoloading collisions.
 
-A fork of [Strauss](https://github.com/BrianHenryIE/strauss). For [Composer](https://getcomposer.org/) for PHP.
+A fork of [Strauss](https://github.com/BrianHenryIE/strauss) for [Composer](https://getcomposer.org/) for PHP.
 
 The primary use case is WordPress plugins, where different plugins active in a single WordPress install could each include different versions of the same library. The version of the class loaded would be whichever plugin registered the autoloader first, and all subsequent instantiations of the class will use that version, with potentially unpredictable behaviour and missing functionality.    
 
