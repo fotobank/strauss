@@ -40,7 +40,7 @@ jobs:
         with:
           gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
           passphrase: ${{ secrets.PASSPHRASE }}
-
+          
       - name: Sign the PHAR
         run: |
           ls strauss.phar

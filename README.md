@@ -30,7 +30,7 @@ and use `vendor/bin/strauss` to execute.
 Or(@todo), download `strauss.phar` from [releases](https://github.com/fotobank/strauss/releases/),
 
 ```shell
-curl -o strauss.phar -L -C - https://github.com/fotobank/strauss/releases/download/0.14.0/strauss.phar
+curl -o strauss.phar -L -C - https://github.com/fotobank/strauss/releases/download/0.14.2/strauss.phar
 ```
 
 Then run it from the root of your project folder using `php strauss.phar`.
