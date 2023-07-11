@@ -1,11 +1,5 @@
 # fotobank/strauss
 
-[![gh_last_release_svg]][gh_last_release_url]
-
-[gh_last_release_svg]: https://img.shields.io/github/v/release/fotobank/strauss?sort=semver
-[gh_last_release_url]: https://github.com/fotobank/strauss/releases/latest
-
-
 A tool to prefix namespaces and classnames in PHP files to avoid autoloading collisions.
 
 A fork of [Strauss](https://github.com/BrianHenryIE/strauss) for [Composer](https://getcomposer.org/) for PHP.
