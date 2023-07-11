@@ -111,7 +111,7 @@ The following configuration is default:
 - `include_modified_date` is a `bool` to decide if Strauss should include a date in the (phpdoc) header written to modified files. Defaults to `true`.
 - `include_author` is a `bool` to decide if Strauss should include the author name in the (phpdoc) header written to modified files. Defaults to `true`.
 
-The remainder is empty:
+The rest of the configuration:
 
 - `constant_prefix` is for `define( "A_CONSTANT", value );` -> `define( "MY_PREFIX_A_CONSTANT", value );`. If it is empty, constants are not prefixed (this may change to an inferred value).
 - `override_autoload` a dictionary, keyed with the package names, of autoload settings to replace those in the original packages' `composer.json` `autoload` property.
