@@ -2,7 +2,7 @@
 
 [![gh_last_release_svg]][gh_last_release_url]
 
-[gh_last_release_svg]: https://img.shields.io/github/v/release/meeDamian/github-release?sort=semver
+[gh_last_release_svg]: https://img.shields.io/github/v/release/fotobank/strauss?sort=semver
 [gh_last_release_url]: https://github.com/fotobank/github-release/releases/latest
 
 
