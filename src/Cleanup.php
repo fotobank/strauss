@@ -60,7 +60,7 @@ class Cleanup
 
         if ($this->isDeleteVendorPackages) {
             $package_dirs = array_unique(array_map(static function (string $relativeFilePath): string {
-                list( $vendor, $package ) = explode(DIRECTORY_SEPARATOR, $relativeFilePath);
+                [$vendor, $package] = explode(DIRECTORY_SEPARATOR, $relativeFilePath);
                 return "{$vendor}/{$package}";
             }, $sourceFiles));
 
