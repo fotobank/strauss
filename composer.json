@@ -3,7 +3,7 @@
     "description": "Changes the class namespaces from vendor and moves all dependencies to a separate directory inside the WordPress plugin.",
     "authors": [
         {
-            "name": "Alex Yury",
+            "name": "Alex Jurii",
             "email": "juriia@gmail.com"
         },
         {
@@ -17,12 +17,12 @@
     ],
     "autoload": {
         "psr-4": {
-            "AlexSoft\\Strauss\\": "src/"
+            "AlexLabs\\Strauss\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "AlexSoft\\Strauss\\Tests\\": "tests/"
+            "AlexLabs\\Strauss\\Tests\\": "tests/"
         }
     },
     "bin": ["bin/strauss"],

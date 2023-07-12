@@ -9,16 +9,16 @@
  *
  *
  * @author BrianHenryIE
- * @author Alex Yury
+ * @author Alex Jurii
  *
  * @license MIT
  */
 
-namespace AlexSoft\Strauss;
+namespace AlexLabs\Strauss;
 
-use AlexSoft\Strauss\Composer\ComposerPackage;
-use AlexSoft\Strauss\Composer\Extra\StraussConfig;
-use Exception;
+use AlexLabs\Strauss\Composer\ComposerPackage;
+use AlexLabs\Strauss\Composer\Extra\StraussConfig;
+use RuntimeException;
 use League\Flysystem\Adapter\Local;
 use League\Flysystem\FileNotFoundException;
 use League\Flysystem\Filesystem;
@@ -207,7 +207,7 @@ class Prefixer
             if (PREG_BACKTRACK_LIMIT_ERROR === $matchingError) {
                 $message = 'Preg Backtrack limit was exhausted!';
             }
-            throw new Exception($message);
+            throw new RuntimeException($message);
         }
 
         return $result;
@@ -225,7 +225,7 @@ class Prefixer
      * @param string $originalClassname
      * @param string $classnamePrefix
      * @return array|string|string[]|null
-     * @throws \Exception
+     * @throws RuntimeException
      */
     public function replaceClassname($contents, $originalClassname, $classnamePrefix)
     {
@@ -282,7 +282,7 @@ class Prefixer
             if (PREG_BACKTRACK_LIMIT_ERROR === $matchingError) {
                 $message = 'Backtrack limit was exhausted!';
             }
-            throw new Exception($message);
+            throw new RuntimeException($message);
         }
 
         return $result;

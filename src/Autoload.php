@@ -11,14 +11,14 @@
  * @see \Composer\Autoload\ClassMapGenerator
  *
  * @author BrianHenryIE
- * @author Alex Yury
+ * @author Alex Jurii
  *
  * @license MIT
  */
 
-namespace AlexSoft\Strauss;
+namespace AlexLabs\Strauss;
 
-use AlexSoft\Strauss\Composer\Extra\StraussConfig;
+use AlexLabs\Strauss\Composer\Extra\StraussConfig;
 use Composer\Autoload\ClassMapGenerator;
 use League\Flysystem\Adapter\Local;
 use League\Flysystem\Filesystem;
@@ -111,7 +111,7 @@ class Autoload
 
             array_walk(
                 $dirMap,
-                function (&$filepath, $_class) use ($dir, $dirname) {
+                static function (&$filepath, $_class) use ($dir, $dirname) {
                     $filepath = "\$strauss_src . '"
                         . DIRECTORY_SEPARATOR
                         . ltrim(str_replace($dir, '', $filepath), DIRECTORY_SEPARATOR) . "'";

@@ -3,13 +3,13 @@
  * @see https://github.com/coenjacobs/mozart/issues/128
  */
 
-namespace AlexSoft\Strauss\Tests\Issues;
+namespace AlexLabs\Strauss\Tests\Issues;
 
-use AlexSoft\Strauss\Console\Commands\Compose;
+use AlexLabs\Strauss\Console\Commands\Compose;
 
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use AlexSoft\Strauss\Tests\Integration\Util\IntegrationTestCase;
+use AlexLabs\Strauss\Tests\Integration\Util\IntegrationTestCase;
 
 /**
  * Class MozartIssue128Test

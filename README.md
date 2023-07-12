@@ -63,8 +63,8 @@ Strauss potentially requires zero configuration, but likely you'll want to custo
 "extra": {
     "strauss": {
         "target_directory": "vendor-prefixed",
-        "namespace_prefix": "AlexSoft\\My_Project\\",
-        "classmap_prefix": "AlexSoft_My_Project_",
+        "namespace_prefix": "AlexLabs\\My_Project\\",
+        "classmap_prefix": "AlexLabs_My_Project_",
         "constant_prefix": "ASMP_",
         "packages": [
         ],

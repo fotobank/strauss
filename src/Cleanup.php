@@ -10,15 +10,16 @@
  *
  *
  * @author BrianHenryIE
- * @author Alex Yury
+ * @author Alex Jurii
  *
  * @license MIT
  */
 
-namespace AlexSoft\Strauss;
+namespace AlexLabs\Strauss;
 
-use AlexSoft\Strauss\Composer\Extra\StraussConfig;
+use AlexLabs\Strauss\Composer\Extra\StraussConfig;
 use League\Flysystem\Adapter\Local;
+use League\Flysystem\FileNotFoundException;
 use League\Flysystem\Filesystem;
 use RecursiveDirectoryIterator;
 use Symfony\Component\Finder\Finder;
@@ -49,6 +50,7 @@ class Cleanup
      * then delete empty directories.
      *
      * @param array $sourceFiles
+     * @throws FileNotFoundException
      */
     public function cleanup(array $sourceFiles)
     {
@@ -57,8 +59,8 @@ class Cleanup
         }
 
         if ($this->isDeleteVendorPackages) {
-            $package_dirs = array_unique(array_map(function (string $relativeFilePath): string {
-                list( $vendor, $package ) = explode('/', $relativeFilePath);
+            $package_dirs = array_unique(array_map(static function (string $relativeFilePath): string {
+                list( $vendor, $package ) = explode(DIRECTORY_SEPARATOR, $relativeFilePath);
                 return "{$vendor}/{$package}";
             }, $sourceFiles));
 
@@ -78,7 +80,7 @@ class Cleanup
         // Get the root folders of the moved files.
         $rootSourceDirectories = [];
         foreach ($sourceFiles as $sourceFile) {
-            $arr = explode("/", $sourceFile, 2);
+            $arr = explode(DIRECTORY_SEPARATOR, $sourceFile, 2);
             $dir = $arr[0];
             $rootSourceDirectories[ $dir ] = $dir;
         }

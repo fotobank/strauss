@@ -3,18 +3,18 @@
  * @see https://github.com/fotobank/strauss/issues/14
  */
 
-namespace AlexSoft\Strauss\Tests\Issues;
+namespace AlexLabs\Strauss\Tests\Issues;
 
-use AlexSoft\Strauss\Console\Commands\Compose;
+use AlexLabs\Strauss\Console\Commands\Compose;
 use Exception;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 /**
- * @package AlexSoft\Strauss\Tests\Issues
+ * @package AlexLabs\Strauss\Tests\Issues
  * @coversNothing
  */
-class StraussIssue14Test extends \AlexSoft\Strauss\Tests\Integration\Util\IntegrationTestCase
+class StraussIssue14Test extends \AlexLabs\Strauss\Tests\Integration\Util\IntegrationTestCase
 {
 
     /**
@@ -27,13 +27,13 @@ class StraussIssue14Test extends \AlexSoft\Strauss\Tests\Integration\Util\Integr
 
         $composerJsonString = <<<'EOD'
 {
-  "name": "alexsoft/strauss-issue-14",
+  "name": "AlexLabs/strauss-issue-14",
   "require":{
     "guzzlehttp/psr7": "*"
   },
   "extra": {
     "strauss": {
-      "namespace_prefix": "AlexSoft\\Strauss\\"
+      "namespace_prefix": "AlexLabs\\Strauss\\"
     }
   }
 }
@@ -57,7 +57,7 @@ EOD;
         // was namespace GuzzleHttp\Psr7;
 
         // Confirm solution is correct.
-        $this->assertStringContainsString('namespace AlexSoft\Strauss\GuzzleHttp\Psr7;', $php_string);
+        $this->assertStringContainsString('namespace AlexLabs\Strauss\GuzzleHttp\Psr7;', $php_string);
     }
 
     public function testFilesAutoloaderIsGenerated()
@@ -65,16 +65,16 @@ EOD;
 
         $composerJsonString = <<<'EOD'
 {
-  "name": "alexsoft/strauss-issue-14",
+  "name": "AlexLabs/strauss-issue-14",
   "require":{
     "guzzlehttp/psr7": "*"
   },
   "require-dev":{
-    "alexsoft/strauss": "*"
+    "AlexLabs/strauss": "*"
   },
   "extra": {
     "strauss": {
-      "namespace_prefix": "AlexSoft\\Strauss\\"
+      "namespace_prefix": "AlexLabs\\Strauss\\"
     }
   }
 }

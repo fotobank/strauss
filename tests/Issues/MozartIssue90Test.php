@@ -3,16 +3,16 @@
  * @see https://github.com/coenjacobs/mozart/issues/90
  */
 
-namespace AlexSoft\Strauss\Tests\Issues;
+namespace AlexLabs\Strauss\Tests\Issues;
 
-use AlexSoft\Strauss\Console\Commands\Compose;
-use AlexSoft\Strauss\Tests\Integration\Util\IntegrationTestCase;
+use AlexLabs\Strauss\Console\Commands\Compose;
+use AlexLabs\Strauss\Tests\Integration\Util\IntegrationTestCase;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 /**
  * Class MozartIssue90Test
- * @package AlexSoft\Strauss\Tests\Issues
+ * @package AlexLabs\Strauss\Tests\Issues
  * @coversNothing
  */
 class MozartIssue90Test extends IntegrationTestCase
@@ -28,14 +28,14 @@ class MozartIssue90Test extends IntegrationTestCase
 
         $composerJsonString = <<<'EOD'
 {
-	"name": "alexsoft/mozart-issue-90",
+	"name": "AlexLabs/mozart-issue-90",
 	"require": {
 		"iio/libmergepdf": "4.0.4"
 	},
 	"extra": {
 		"strauss": {
-			"namespace_prefix": "AlexSoft\\Strauss\\",
-			"classmap_prefix": "AlexSoft_Strauss_"
+			"namespace_prefix": "AlexLabs\\Strauss\\",
+			"classmap_prefix": "AlexLabs_Strauss_"
 		}
 	}
 }

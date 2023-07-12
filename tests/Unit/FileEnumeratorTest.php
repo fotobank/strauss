@@ -1,5 +1,5 @@
 <?php
-namespace AlexSoft\Strauss\Tests\Unit;
+namespace AlexLabs\Strauss\Tests\Unit;
 
 // Verify there are no // double slashes in paths.
 

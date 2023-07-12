@@ -4,19 +4,19 @@
  * @see https://github.com/fotobank/strauss/issues/37
  */
 
-namespace AlexSoft\Strauss\Tests\Issues;
+namespace AlexLabs\Strauss\Tests\Issues;
 
-use AlexSoft\Strauss\Composer\Extra\StraussConfig;
-use AlexSoft\Strauss\Console\Commands\Compose;
-use AlexSoft\Strauss\Prefixer;
+use AlexLabs\Strauss\Composer\Extra\StraussConfig;
+use AlexLabs\Strauss\Console\Commands\Compose;
+use AlexLabs\Strauss\Prefixer;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 /**
- * @package AlexSoft\Strauss\Tests\Issues
+ * @package AlexLabs\Strauss\Tests\Issues
  * @coversNothing
  */
-class StraussIssue37Test extends \AlexSoft\Strauss\Tests\Integration\Util\IntegrationTestCase
+class StraussIssue37Test extends \AlexLabs\Strauss\Tests\Integration\Util\IntegrationTestCase
 {
 
     /**
@@ -26,14 +26,14 @@ class StraussIssue37Test extends \AlexSoft\Strauss\Tests\Integration\Util\Integr
 
         $composerJsonString = <<<'EOD'
 {
-  "name": "alexsoft/strauss-psr-4-path-array",
+  "name": "AlexLabs/strauss-psr-4-path-array",
   "minimum-stability": "dev",
   "require": {
     "automattic/woocommerce": "*"
   },
   "extra": {
     "strauss": {
-      "namespace_prefix": "AlexSoft\\Strauss\\",
+      "namespace_prefix": "AlexLabs\\Strauss\\",
       "classmap_prefix": "BH_Strauss_"
     }
   }

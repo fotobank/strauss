@@ -1,11 +1,11 @@
 <?php
 
-namespace AlexSoft\Strauss\Tests\Unit;
+namespace AlexLabs\Strauss\Tests\Unit;
 
-use AlexSoft\Strauss\ChangeEnumerator;
-use AlexSoft\Strauss\Composer\ComposerPackage;
-use AlexSoft\Strauss\Composer\Extra\StraussConfig;
-use AlexSoft\Strauss\Prefixer;
+use AlexLabs\Strauss\ChangeEnumerator;
+use AlexLabs\Strauss\Composer\ComposerPackage;
+use AlexLabs\Strauss\Composer\Extra\StraussConfig;
+use AlexLabs\Strauss\Prefixer;
 use Composer\Composer;
 use PHPUnit\Framework\TestCase;
 
@@ -330,12 +330,12 @@ EOD;
 
         $config = $this->createMock(StraussConfig::class);
         $config->method('getExcludePackagesFromPrefixing')->willReturn(
-            array('alexsoft/pdfhelpers')
+            array('AlexLabs/pdfhelpers')
         );
 
         $dir = '';
         $composerPackage = $this->createMock(ComposerPackage::class);
-        $composerPackage->method('getPackageName')->willReturn('alexsoft/pdfhelpers');
+        $composerPackage->method('getPackageName')->willReturn('AlexLabs/pdfhelpers');
         $filesArray = array(
             'irrelevantPath' => array(
                 'dependency' => $composerPackage
@@ -358,7 +358,7 @@ EOD;
 
         $dir = '';
         $composerPackage = $this->createMock(ComposerPackage::class);
-        $composerPackage->method('getPackageName')->willReturn('alexsoft/pdfhelpers');
+        $composerPackage->method('getPackageName')->willReturn('AlexLabs/pdfhelpers');
         $filesArray = array(
             'path/to/file' => array(
                 'dependency' => $composerPackage
@@ -378,23 +378,23 @@ EOD;
     {
 
         $contents = "
-		namespace AlexSoft\PdfHelpers {
+		namespace AlexLabs\PdfHelpers {
 			class A_Class { }
 		}
 		";
 
         $config = $this->createMock(StraussConfig::class);
-        $config->method('getNamespacePrefix')->willReturn('AlexSoft\Prefix');
+        $config->method('getNamespacePrefix')->willReturn('AlexLabs\Prefix');
         $config->method('getNamespaceReplacementPatterns')->willReturn(
-            array('/AlexSoft\\\\(PdfHelpers)/'=>'AlexSoft\\Prefix\\\\$1')
+            array('/AlexLabs\\\\(PdfHelpers)/'=>'AlexLabs\\Prefix\\\\$1')
         );
 
         $changeEnumerator = new ChangeEnumerator($config);
         $changeEnumerator->find($contents);
 
-        $this->assertArrayHasKey('AlexSoft\PdfHelpers', $changeEnumerator->getDiscoveredNamespaceReplacements());
-        $this->assertContains('AlexSoft\Prefix\PdfHelpers', $changeEnumerator->getDiscoveredNamespaceReplacements());
-        $this->assertNotContains('AlexSoft\Prefix\AlexSoft\PdfHelpers', $changeEnumerator->getDiscoveredNamespaceReplacements());
+        $this->assertArrayHasKey('AlexLabs\PdfHelpers', $changeEnumerator->getDiscoveredNamespaceReplacements());
+        $this->assertContains('AlexLabs\Prefix\PdfHelpers', $changeEnumerator->getDiscoveredNamespaceReplacements());
+        $this->assertNotContains('AlexLabs\Prefix\AlexLabs\PdfHelpers', $changeEnumerator->getDiscoveredNamespaceReplacements());
     }
 
     /**

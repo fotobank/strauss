@@ -8,14 +8,14 @@
  *
  *
  * @author BrianHenryIE
- * @author Alex Yury
+ * @author Alex Jurii
  *
  * @license MIT
  */
 
-namespace AlexSoft\Strauss\Console;
+namespace AlexLabs\Strauss\Console;
 
-use AlexSoft\Strauss\Console\Commands\Compose;
+use AlexLabs\Strauss\Console\Commands\Compose;
 use Symfony\Component\Console\Application as BaseApplication;
 
 class Application extends BaseApplication

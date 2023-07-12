@@ -1,23 +1,23 @@
 <?php
 
-namespace AlexSoft\Strauss\Tests\Integration;
+namespace AlexLabs\Strauss\Tests\Integration;
 
-use AlexSoft\Strauss\ChangeEnumerator;
-use AlexSoft\Strauss\Composer\ComposerPackage;
-use AlexSoft\Strauss\Composer\Extra\StraussConfig;
-use AlexSoft\Strauss\Composer\ProjectComposerPackage;
-use AlexSoft\Strauss\Console\Commands\Compose;
-use AlexSoft\Strauss\Copier;
-use AlexSoft\Strauss\FileEnumerator;
-use AlexSoft\Strauss\Prefixer;
-use AlexSoft\Strauss\Tests\Integration\Util\IntegrationTestCase;
+use AlexLabs\Strauss\ChangeEnumerator;
+use AlexLabs\Strauss\Composer\ComposerPackage;
+use AlexLabs\Strauss\Composer\Extra\StraussConfig;
+use AlexLabs\Strauss\Composer\ProjectComposerPackage;
+use AlexLabs\Strauss\Console\Commands\Compose;
+use AlexLabs\Strauss\Copier;
+use AlexLabs\Strauss\FileEnumerator;
+use AlexLabs\Strauss\Prefixer;
+use AlexLabs\Strauss\Tests\Integration\Util\IntegrationTestCase;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 /**
  * Class ReplacerIntegrationTest
- * @package AlexSoft\Strauss\Tests\Integration
+ * @package AlexLabs\Strauss\Tests\Integration
  * @coversNothing
  */
 class ReplacerIntegrationTest extends IntegrationTestCase
@@ -28,13 +28,13 @@ class ReplacerIntegrationTest extends IntegrationTestCase
 
         $composerJsonString = <<<'EOD'
 {
-  "name": "alexsoft/strauss",
+  "name": "AlexLabs/strauss",
   "require": {
     "google/apiclient": "*"
   },
   "extra": {
     "strauss": {
-      "namespace_prefix": "AlexSoft\\Strauss\\",
+      "namespace_prefix": "AlexLabs\\Strauss\\",
       "classmap_prefix": "BrianHenryIE_Strauss_"
     }
   }
@@ -85,7 +85,7 @@ EOD;
 
         $updatedFile = file_get_contents($absoluteTargetDir . 'google/apiclient/src/Client.php');
 
-        $this->assertStringContainsString('use AlexSoft\Strauss\Google\AccessToken\Revoke;', $updatedFile);
+        $this->assertStringContainsString('use AlexLabs\Strauss\Google\AccessToken\Revoke;', $updatedFile);
     }
 
 
@@ -94,13 +94,13 @@ EOD;
 
         $composerJsonString = <<<'EOD'
 {
-  "name": "alexsoft/strauss",
+  "name": "AlexLabs/strauss",
   "require": {
     "setasign/fpdf": "*"
   },
   "extra": {
     "strauss": {
-      "namespace_prefix": "AlexSoft\\Strauss\\",
+      "namespace_prefix": "AlexLabs\\Strauss\\",
       "classmap_prefix": "BrianHenryIE_Strauss_",
       "delete_vendor_files": false
     }

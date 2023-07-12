@@ -12,15 +12,15 @@
  *
  *
  * @author BrianHenryIE
- * @author Alex Yury
+ * @author Alex Jurii
  *
  * @license MIT
  */
 
-namespace AlexSoft\Strauss;
+namespace AlexLabs\Strauss;
 
-use AlexSoft\Strauss\Composer\ComposerPackage;
-use AlexSoft\Strauss\Composer\Extra\StraussConfig;
+use AlexLabs\Strauss\Composer\ComposerPackage;
+use AlexLabs\Strauss\Composer\Extra\StraussConfig;
 
 class ChangeEnumerator
 {
@@ -49,7 +49,7 @@ class ChangeEnumerator
 
     /**
      * ChangeEnumerator constructor.
-     * @param \AlexSoft\Strauss\Composer\Extra\StraussConfig $config
+     * @param \AlexLabs\Strauss\Composer\Extra\StraussConfig $config
      */
     public function __construct(StraussConfig $config)
     {

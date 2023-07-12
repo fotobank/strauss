@@ -8,24 +8,25 @@
  *
  *
  * @author BrianHenryIE
- * @author Alex Yury
+ * @author Alex Jurii
  *
  * @license MIT
  */
 
-namespace AlexSoft\Strauss\Console\Commands;
+namespace AlexLabs\Strauss\Console\Commands;
 
-use AlexSoft\Strauss\ChangeEnumerator;
-use AlexSoft\Strauss\Autoload;
-use AlexSoft\Strauss\Cleanup;
-use AlexSoft\Strauss\Composer\ComposerPackage;
-use AlexSoft\Strauss\Composer\ProjectComposerPackage;
-use AlexSoft\Strauss\Copier;
-use AlexSoft\Strauss\FileEnumerator;
-use AlexSoft\Strauss\Licenser;
-use AlexSoft\Strauss\Prefixer;
-use AlexSoft\Strauss\Composer\Extra\StraussConfig;
-use Exception;
+use AlexLabs\Strauss\ChangeEnumerator;
+use AlexLabs\Strauss\Autoload;
+use AlexLabs\Strauss\Cleanup;
+use AlexLabs\Strauss\Composer\ComposerPackage;
+use AlexLabs\Strauss\Composer\ProjectComposerPackage;
+use AlexLabs\Strauss\Copier;
+use AlexLabs\Strauss\FileEnumerator;
+use AlexLabs\Strauss\Licenser;
+use AlexLabs\Strauss\Prefixer;
+use AlexLabs\Strauss\Composer\Extra\StraussConfig;
+use RuntimeException;
+use League\Flysystem\FileNotFoundException;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -91,7 +92,7 @@ class Compose extends Command
             $this->generateAutoloader();
 
             $this->cleanUp();
-        } catch (Exception $e) {
+        } catch (RuntimeException $e) {
             $output->write($e->getMessage());
             return 1;
         }
@@ -104,7 +105,7 @@ class Compose extends Command
     /**
      * 1. Load the composer.json.
      *
-     * @throws Exception
+     * @throws RuntimeException
      */
     protected function loadProjectComposerPackage()
     {
@@ -284,6 +285,7 @@ class Compose extends Command
      * 7.
      * Delete source files if desired.
      * Delete empty directories in destination.
+     * @throws FileNotFoundException
      */
     protected function cleanUp()
     {

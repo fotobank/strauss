@@ -10,15 +10,15 @@
  *
  *
  * @author BrianHenryIE
- * @author Alex Yury
+ * @author Alex Jurii
  *
  * @license MIT
  */
 
-namespace AlexSoft\Strauss\Composer\Extra;
+namespace AlexLabs\Strauss\Composer\Extra;
 
 use Composer\Composer;
-use Exception;
+use RuntimeException;
 use JsonMapper\JsonMapperFactory;
 use JsonMapper\Middleware\Rename\Rename;
 
@@ -136,7 +136,7 @@ class StraussConfig
      * Overwrite it with any Strauss config.
      * Provide sensible defaults.
      *
-     * @throws Exception
+     * @throws RuntimeException
      */
     public function __construct(Composer $composer)
     {
@@ -159,14 +159,14 @@ class StraussConfig
             $mapper = (new JsonMapperFactory())->bestFit();
 
             $rename = new Rename();
-            $rename->addMapping(StraussConfig::class, 'dep_directory', 'targetDirectory');
-            $rename->addMapping(StraussConfig::class, 'dep_namespace', 'namespacePrefix');
+            $rename->addMapping(__CLASS__, 'dep_directory', 'targetDirectory');
+            $rename->addMapping(__CLASS__, 'dep_namespace', 'namespacePrefix');
 
-            $rename->addMapping(StraussConfig::class, 'exclude_packages', 'excludePackages');
-            $rename->addMapping(StraussConfig::class, 'delete_vendor_files', 'deleteVendorFiles');
-            $rename->addMapping(StraussConfig::class, 'delete_vendor_packages', 'deleteVendorPackages');
+            $rename->addMapping(__CLASS__, 'exclude_packages', 'excludePackages');
+            $rename->addMapping(__CLASS__, 'delete_vendor_files', 'deleteVendorFiles');
+            $rename->addMapping(__CLASS__, 'delete_vendor_packages', 'deleteVendorPackages');
 
-            $rename->addMapping(StraussConfig::class, 'exclude_prefix_packages', 'excludePackagesFromPrefixing');
+            $rename->addMapping(__CLASS__, 'exclude_prefix_packages', 'excludePackagesFromPrefixing');
 
             $mapper->unshift($rename);
             $mapper->push(new \JsonMapper\Middleware\CaseConversion(
@@ -227,11 +227,11 @@ class StraussConfig
         }
 
         if (!isset($this->namespacePrefix) || !isset($this->classmapPrefix)) {
-            throw new Exception('Prefix not set. Please set `namespace_prefix`, `classmap_prefix` in composer.json/extra/strauss.');
+            throw new RuntimeException('Prefix not set. Please set `namespace_prefix`, `classmap_prefix` in composer.json/extra/strauss.');
         }
 
         if (empty($this->packages)) {
-            $this->packages = array_map(function (\Composer\Package\Link $element) {
+            $this->packages = array_map(static function (\Composer\Package\Link $element) {
                 return $element->getTarget();
             }, $composer->getPackage()->getRequires());
         }
@@ -252,7 +252,7 @@ class StraussConfig
             }
         }
 
-        // TODO: Throw an exception if any regex patterns in config are invalid.
+        // TODO: Throw an RuntimeException if any regex patterns in config are invalid.
         // https://stackoverflow.com/questions/4440626/how-can-i-validate-regex
         // preg_match('~Valid(Regular)Expression~', null) === false);
     }

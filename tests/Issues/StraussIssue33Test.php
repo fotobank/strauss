@@ -3,19 +3,19 @@
  *
  */
 
-namespace AlexSoft\Strauss\Tests\Issues;
+namespace AlexLabs\Strauss\Tests\Issues;
 
-use AlexSoft\Strauss\Composer\Extra\StraussConfig;
-use AlexSoft\Strauss\Console\Commands\Compose;
-use AlexSoft\Strauss\Prefixer;
+use AlexLabs\Strauss\Composer\Extra\StraussConfig;
+use AlexLabs\Strauss\Console\Commands\Compose;
+use AlexLabs\Strauss\Prefixer;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 /**
- * @package AlexSoft\Strauss\Tests\Issues
+ * @package AlexLabs\Strauss\Tests\Issues
  * @coversNothing
  */
-class StraussIssue33Test extends \AlexSoft\Strauss\Tests\Integration\Util\IntegrationTestCase
+class StraussIssue33Test extends \AlexLabs\Strauss\Tests\Integration\Util\IntegrationTestCase
 {
 
     /**
@@ -25,7 +25,7 @@ class StraussIssue33Test extends \AlexSoft\Strauss\Tests\Integration\Util\Integr
 
         $composerJsonString = <<<'EOD'
 {
-  "name": "alexsoft/strauss-backtrack-limit-exhausted",
+  "name": "AlexLabs/strauss-backtrack-limit-exhausted",
   "minimum-stability": "dev",
   "require": {
     "afragen/wp-dependency-installer": "^3.1",
@@ -33,7 +33,7 @@ class StraussIssue33Test extends \AlexSoft\Strauss\Tests\Integration\Util\Integr
   },
   "extra": {
     "strauss": {
-      "namespace_prefix": "AlexSoft\\Strauss_Backtrack_Limit_Exhausted\\",
+      "namespace_prefix": "AlexLabs\\Strauss_Backtrack_Limit_Exhausted\\",
       "target_directory": "/strauss/",
       "classmap_prefix": "BH_Strauss_Backtrack_Limit_Exhausted_"
     }

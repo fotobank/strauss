@@ -12,12 +12,12 @@
  *
  *
  * @author BrianHenryIE
- * @author Alex Yury
+ * @author Alex Jurii
  *
  * @license MIT
  */
 
-namespace AlexSoft\Strauss\Composer;
+namespace AlexLabs\Strauss\Composer;
 
 use Composer\Composer;
 use Composer\Factory;
@@ -173,7 +173,7 @@ class ComposerPackage
 
     /**
      *
-     * e.g. ['psr-4' => [ 'AlexSoft\Project' => 'src' ]]
+     * e.g. ['psr-4' => [ 'AlexLabs\Project' => 'src' ]]
      *
      * @return array<string, array<int|string, string>>
      */

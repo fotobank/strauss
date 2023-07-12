@@ -1,19 +1,19 @@
 <?php
 
-namespace AlexSoft\Strauss\Tests\Integration;
+namespace AlexLabs\Strauss\Tests\Integration;
 
-use AlexSoft\Strauss\Composer\ComposerPackage;
-use AlexSoft\Strauss\Composer\Extra\StraussConfig;
-use AlexSoft\Strauss\Composer\ProjectComposerPackage;
-use AlexSoft\Strauss\FileEnumerator;
-use AlexSoft\Strauss\Tests\Integration\Util\IntegrationTestCase;
+use AlexLabs\Strauss\Composer\ComposerPackage;
+use AlexLabs\Strauss\Composer\Extra\StraussConfig;
+use AlexLabs\Strauss\Composer\ProjectComposerPackage;
+use AlexLabs\Strauss\FileEnumerator;
+use AlexLabs\Strauss\Tests\Integration\Util\IntegrationTestCase;
 use PHPUnit\Framework\TestCase;
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
 
 /**
  * Class FileEnumeratorIntegrationTest
- * @package AlexSoft\Strauss
+ * @package AlexLabs\Strauss
  * @coversNothing
  */
 class FileEnumeratorIntegrationTest extends IntegrationTestCase
@@ -24,13 +24,13 @@ class FileEnumeratorIntegrationTest extends IntegrationTestCase
 
         $composerJsonString = <<<'EOD'
 {
-  "name": "alexsoft/strauss",
+  "name": "AlexLabs/strauss",
   "require": {
     "google/apiclient": "*"
   },
   "extra": {
     "strauss": {
-      "namespace_prefix": "AlexSoft\\Strauss\\",
+      "namespace_prefix": "AlexLabs\\Strauss\\",
       "classmap_prefix": "BrianHenryIE_Strauss_",
       "delete_vendor_files": false
     }

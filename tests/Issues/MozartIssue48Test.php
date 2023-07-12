@@ -5,16 +5,16 @@
  *
  */
 
-namespace AlexSoft\Strauss\Tests\Issues;
+namespace AlexLabs\Strauss\Tests\Issues;
 
-use AlexSoft\Strauss\Console\Commands\Compose;
-use AlexSoft\Strauss\Tests\Integration\Util\IntegrationTestCase;
+use AlexLabs\Strauss\Console\Commands\Compose;
+use AlexLabs\Strauss\Tests\Integration\Util\IntegrationTestCase;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 /**
  * Class MozartIssue48Test
- * @package AlexSoft\Strauss\Tests\Issues
+ * @package AlexLabs\Strauss\Tests\Issues
  * @coversNothing
  */
 class MozartIssue48Test extends IntegrationTestCase
@@ -31,7 +31,7 @@ class MozartIssue48Test extends IntegrationTestCase
 
         $composerJsonString = <<<'EOD'
 {
-    "name": "alexsoft/mozart-issue-48",
+    "name": "AlexLabs/mozart-issue-48",
     "require": { "rubix/tensor": "2.0.5" }
 }
 EOD;

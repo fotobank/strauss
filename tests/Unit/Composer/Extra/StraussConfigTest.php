@@ -5,14 +5,14 @@
  * Should have sensible defaults.
  */
 
-namespace AlexSoft\Strauss\Composer\Extra;
+namespace AlexLabs\Strauss\Composer\Extra;
 
 use Composer\Factory;
 use Composer\IO\NullIO;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \AlexSoft\Strauss\Composer\Extra\StraussConfig
+ * @covers \AlexLabs\Strauss\Composer\Extra\StraussConfig
  */
 class StraussConfigTest extends TestCase
 {
@@ -32,8 +32,8 @@ class StraussConfigTest extends TestCase
   "extra": {
     "strauss": {
       "target_directory": "/target_directory/",
-      "namespace_prefix": "AlexSoft\\Strauss\\",
-      "classmap_prefix": "AlexSoft_Strauss_",
+      "namespace_prefix": "AlexLabs\\Strauss\\",
+      "classmap_prefix": "AlexLabs_Strauss_",
       "packages": [
         "pimple/pimple"
       ],
@@ -64,7 +64,7 @@ EOD;
 
         $this->assertEquals('target_directory' . DIRECTORY_SEPARATOR, $sut->getTargetDirectory());
 
-        $this->assertEquals("AlexSoft\\Strauss", $sut->getNamespacePrefix());
+        $this->assertEquals("AlexLabs\\Strauss", $sut->getNamespacePrefix());
 
         $this->assertEquals('BrianHenryIE_Strauss_', $sut->getClassmapPrefix());
 
@@ -83,14 +83,14 @@ EOD;
 
         $composerExtraStraussJson = <<<'EOD'
 {
-  "name": "alexsoft/strauss-config-test",
+  "name": "AlexLabs/strauss-config-test",
   "require": {
     "league/container": "*"
   },
   "extra": {
     "strauss": {
       "target_directory": "/target_directory/",
-      "namespace_prefix": "AlexSoft\\Strauss\\",
+      "namespace_prefix": "AlexLabs\\Strauss\\",
       "classmap_prefix": "BrianHenryIE_Strauss_",
       "packages": [
         "pimple/pimple"
@@ -138,13 +138,13 @@ EOD;
 
         $composerExtraStraussJson = <<<'EOD'
 {
-  "name": "alexsoft/strauss-config-test",
+  "name": "AlexLabs/strauss-config-test",
   "require": {
     "league/container": "*"
   },
   "extra": {
     "strauss": {
-      "namespace_prefix": "AlexSoft\\Strauss\\",
+      "namespace_prefix": "AlexLabs\\Strauss\\",
       "classmap_prefix": "BrianHenryIE_Strauss_",
       "exclude_prefix_packages": [
         "psr/container"
@@ -181,14 +181,14 @@ EOD;
 
         $composerExtraStraussJson = <<<'EOD'
 {
-  "name": "alexsoft/strauss-config-test",
+  "name": "AlexLabs/strauss-config-test",
   "require": {
     "league/container": "*"
   },
 
   "autoload": {
     "psr-4": {
-      "AlexSoft\\Strauss\\": "src"
+      "AlexLabs\\Strauss\\": "src"
     }
   }
 }
@@ -201,7 +201,7 @@ EOD;
 
         $sut = new StraussConfig($composer);
 
-        $this->assertEquals("AlexSoft\\Strauss", $sut->getNamespacePrefix());
+        $this->assertEquals("AlexLabs\\Strauss", $sut->getNamespacePrefix());
     }
 
     /**
@@ -212,14 +212,14 @@ EOD;
 
         $composerExtraStraussJson = <<<'EOD'
 {
-  "name": "alexsoft/strauss-config-test",
+  "name": "AlexLabs/strauss-config-test",
   "require": {
     "league/container": "*"
   },
 
   "autoload": {
     "psr-0": {
-      "AlexSoft\\Strauss\\": "lib/"
+      "AlexLabs\\Strauss\\": "lib/"
     }
   }
 }
@@ -231,20 +231,20 @@ EOD;
 
         $sut = new StraussConfig($composer);
 
-        $this->assertEquals("AlexSoft\\Strauss", $sut->getNamespacePrefix());
+        $this->assertEquals("AlexLabs\\Strauss", $sut->getNamespacePrefix());
     }
 
     /**
      * When the namespace prefix isn't provided, and there's no PSR-0 or PSR-4 autoloader to figure it from...
      *
-     * alexsoft/strauss-config-test
+     * AlexLabs/strauss-config-test
      */
     public function testDefaultNamespacePrefixWithNoAutoloader()
     {
 
         $composerExtraStraussJson = <<<'EOD'
 {
-  "name": "alexsoft/strauss-config-test",
+  "name": "AlexLabs/strauss-config-test",
   "require": {
     "league/container": "*"
   }
@@ -258,7 +258,7 @@ EOD;
 
         $sut = new StraussConfig($composer);
 
-        $this->assertEquals("AlexSoft\\Strauss_Config_Test", $sut->getNamespacePrefix());
+        $this->assertEquals("AlexLabs\\Strauss_Config_Test", $sut->getNamespacePrefix());
     }
 
     /**
@@ -269,14 +269,14 @@ EOD;
 
         $composerExtraStraussJson = <<<'EOD'
 {
-  "name": "alexsoft/strauss-config-test",
+  "name": "AlexLabs/strauss-config-test",
   "require": {
     "league/container": "*"
   },
 
   "autoload": {
     "psr-4": {
-      "AlexSoft\\Strauss\\": "src"
+      "AlexLabs\\Strauss\\": "src"
     }
   }
 }
@@ -300,14 +300,14 @@ EOD;
 
         $composerExtraStraussJson = <<<'EOD'
 {
-  "name": "alexsoft/strauss-config-test",
+  "name": "AlexLabs/strauss-config-test",
   "require": {
     "league/container": "*"
   },
 
   "autoload": {
     "psr-0": {
-      "AlexSoft\\Strauss\\": "lib/"
+      "AlexLabs\\Strauss\\": "lib/"
     }
   }
 }
@@ -326,14 +326,14 @@ EOD;
     /**
      * When the classmap prefix isn't provided, and there's no PSR-0 or PSR-4 autoloader to figure it from...
      *
-     * alexsoft/strauss-config-test
+     * AlexLabs/strauss-config-test
      */
     public function testDefaultClassmapPrefixWithNoAutoloader()
     {
 
         $composerExtraStraussJson = <<<'EOD'
 {
-  "name": "alexsoft/strauss-config-test",
+  "name": "AlexLabs/strauss-config-test",
   "require": {
     "league/container": "*"
   }
@@ -358,14 +358,14 @@ EOD;
 
         $composerExtraStraussJson = <<<'EOD'
 {
-  "name": "alexsoft/strauss-config-test",
+  "name": "AlexLabs/strauss-config-test",
   "require": {
     "league/container": "*"
   },
   "extra": {
     "strauss": {
       "target_directory": "/target_directory/",
-      "namespace_prefix": "AlexSoft\\Strauss\\",
+      "namespace_prefix": "AlexLabs\\Strauss\\",
       "classmap_prefix": "BrianHenryIE_Strauss_",
       "packages": [
         "pimple/pimple"
@@ -403,7 +403,7 @@ EOD;
 
         $composerExtraStraussJson = <<<'EOD'
 {
-  "name": "alexsoft/strauss-config-test",
+  "name": "AlexLabs/strauss-config-test",
   "extra": {
     "strauss": {
       "exclude_prefix_packages": [
@@ -430,7 +430,7 @@ EOD;
 
         $composerExtraStraussJson = <<<'EOD'
 {
-  "name": "alexsoft/strauss-config-test",
+  "name": "AlexLabs/strauss-config-test",
   "extra": {
     "strauss": {
         "exclude_from_prefix": {
@@ -459,7 +459,7 @@ EOD;
 
         $composerExtraStraussJson = <<<'EOD'
 {
-  "name": "alexsoft/strauss-config-test"
+  "name": "AlexLabs/strauss-config-test"
 }
 
 EOD;
@@ -484,7 +484,7 @@ EOD;
 
         $composerExtraStraussJson = <<<'EOD'
 {
-  "name": "alexsoft/strauss-config-test",
+  "name": "AlexLabs/strauss-config-test",
     "extra": {
     "strauss": {
         "exclude_from_prefix": {
@@ -514,13 +514,13 @@ EOD;
 
         $composerExtraStraussJson = <<<'EOD'
 {
-  "name": "alexsoft/strauss-config-test",
+  "name": "AlexLabs/strauss-config-test",
   "require": {
     "league/container": "*"
   },
   "extra": {
     "strauss": {
-      "namespace_prefix": "AlexSoft\\Strauss\\",
+      "namespace_prefix": "AlexLabs\\Strauss\\",
       "classmap_prefix": "BrianHenryIE_Strauss_",
       "exclude_prefix_packages": [
         "psr/container"
@@ -608,7 +608,7 @@ EOD;
      *
      * @see Prefixer::replaceNamespace()
      *
-     * @covers \AlexSoft\Strauss\Composer\Extra\StraussConfig::getNamespacePrefix
+     * @covers \AlexLabs\Strauss\Composer\Extra\StraussConfig::getNamespacePrefix
      */
     public function testNamespacePrefixHasNoSlash()
     {
@@ -639,7 +639,7 @@ EOD;
 {
  "extra":{
   "strauss": {
-   "namespace_prefix": "AlexSoft\\Strauss\\"
+   "namespace_prefix": "AlexLabs\\Strauss\\"
   }
  }
 }
@@ -666,7 +666,7 @@ EOD;
 {
  "extra":{
   "strauss": {
-   "namespace_prefix": "AlexSoft\\Strauss\\",
+   "namespace_prefix": "AlexLabs\\Strauss\\",
    "include_modified_date": false
   }
  }
@@ -690,7 +690,7 @@ EOD;
 {
  "extra":{
   "strauss": {
-   "namespace_prefix": "AlexSoft\\Strauss\\"
+   "namespace_prefix": "AlexLabs\\Strauss\\"
   }
  }
 }
@@ -713,7 +713,7 @@ EOD;
 {
  "extra":{
   "strauss": {
-   "namespace_prefix": "AlexSoft\\Strauss\\",
+   "namespace_prefix": "AlexLabs\\Strauss\\",
    "include_author": false
   }
  }
@@ -736,7 +736,7 @@ EOD;
 {
  "extra":{
   "strauss": {
-   "namespace_prefix": "AlexSoft\\Strauss\\",
+   "namespace_prefix": "AlexLabs\\Strauss\\",
    "delete_vendor_packages": true
   }
  }

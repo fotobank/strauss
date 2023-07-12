@@ -6,7 +6,7 @@
 
   "autoload": {
     "psr-4": {
-      "AlexSoft\\Strauss\\": "src"
+      "AlexLabs\\Strauss\\": "src"
     }
   }
 }

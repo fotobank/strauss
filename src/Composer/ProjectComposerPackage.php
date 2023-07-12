@@ -10,16 +10,17 @@
  *
  *
  * @author BrianHenryIE
- * @author Alex Yury
+ * @author Alex Jurii
  *
  * @license MIT
  */
 
 
-namespace AlexSoft\Strauss\Composer;
+namespace AlexLabs\Strauss\Composer;
 
-use AlexSoft\Strauss\Composer\Extra\StraussConfig;
+use AlexLabs\Strauss\Composer\Extra\StraussConfig;
 use Composer\Factory;
+use RuntimeException;
 use Composer\IO\NullIO;
 
 class ProjectComposerPackage extends ComposerPackage
@@ -61,7 +62,7 @@ class ProjectComposerPackage extends ComposerPackage
 
     /**
      * @return StraussConfig
-     * @throws \Exception
+     * @throws RuntimeException
      */
     public function getStraussConfig(): StraussConfig
     {

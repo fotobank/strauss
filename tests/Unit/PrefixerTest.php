@@ -7,18 +7,18 @@
  */
 
 
-namespace AlexSoft\Strauss\Tests\Unit;
+namespace AlexLabs\Strauss\Tests\Unit;
 
-use AlexSoft\Strauss\Composer\Extra\StraussConfig;
-use AlexSoft\Strauss\Prefixer;
+use AlexLabs\Strauss\Composer\Extra\StraussConfig;
+use AlexLabs\Strauss\Prefixer;
 use Composer\Composer;
 use Composer\Config;
 use PHPUnit\Framework\TestCase;
 
 /**
  * Class ReplacerTest
- * @package AlexSoft\Strauss
- * @covers \AlexSoft\Strauss\Prefixer
+ * @package AlexLabs\Strauss
+ * @covers \AlexLabs\Strauss\Prefixer
  */
 class PrefixerTest extends TestCase
 {
@@ -31,7 +31,7 @@ class PrefixerTest extends TestCase
 
         $composerJson = <<<'EOD'
 {
-"name": "alexsoft/strauss-replacer-test",
+"name": "AlexLabs/strauss-replacer-test",
 "extra": {
 
 }
@@ -127,11 +127,11 @@ EOD;
         $replacer = new Prefixer($config, __DIR__);
 
         $originalNamespace = 'Google\\Http';
-        $replacement = 'AlexSoft\\Strauss\\Google\\Http';
+        $replacement = 'AlexLabs\\Strauss\\Google\\Http';
 
         $result = $replacer->replaceNamespace($contents, $originalNamespace, $replacement);
 
-        $expected = 'use AlexSoft\\Strauss\\Google\\Http\\Batch;';
+        $expected = 'use AlexLabs\\Strauss\\Google\\Http\\Batch;';
 
         $this->assertStringContainsString($expected, $result);
     }
@@ -692,7 +692,7 @@ EOD;
         $config = $this->createMock(StraussConfig::class);
 
         $replacer = new Prefixer($config, __DIR__);
-        $result = $replacer->replaceNamespace($contents, 'Mpdf', 'AlexSoft\Strauss\Mpdf');
+        $result = $replacer->replaceNamespace($contents, 'Mpdf', 'AlexLabs\Strauss\Mpdf');
 
         $this->assertEquals($expected, $result);
     }
@@ -701,12 +701,12 @@ EOD;
     {
 
         $contents = 'class BarcodeException extends \Mpdf\MpdfException';
-        $expected = 'class BarcodeException extends \AlexSoft\Strauss\Mpdf\MpdfException';
+        $expected = 'class BarcodeException extends \AlexLabs\Strauss\Mpdf\MpdfException';
 
         $config = $this->createMock(StraussConfig::class);
 
         $replacer = new Prefixer($config, __DIR__);
-        $result = $replacer->replaceNamespace($contents, 'Mpdf', 'AlexSoft\Strauss\Mpdf');
+        $result = $replacer->replaceNamespace($contents, 'Mpdf', 'AlexLabs\Strauss\Mpdf');
 
         $this->assertEquals($expected, $result);
     }
@@ -720,12 +720,12 @@ EOD;
     {
 
         $contents = '$ioc->register( new \Carbon_Fields\Provider\Container_Condition_Provider() );';
-        $expected = '$ioc->register( new \AlexSoft\Strauss\Carbon_Fields\Provider\Container_Condition_Provider() );';
+        $expected = '$ioc->register( new \AlexLabs\Strauss\Carbon_Fields\Provider\Container_Condition_Provider() );';
 
         $config = $this->createMock(StraussConfig::class);
 
         $replacer = new Prefixer($config, __DIR__);
-        $result = $replacer->replaceNamespace($contents, 'Carbon_Fields\Provider', 'AlexSoft\Strauss\Carbon_Fields\Provider');
+        $result = $replacer->replaceNamespace($contents, 'Carbon_Fields\Provider', 'AlexLabs\Strauss\Carbon_Fields\Provider');
 
         $this->assertEquals($expected, $result);
     }
@@ -741,12 +741,12 @@ EOD;
     {
 
         $contents = '@method static \Carbon_Fields\Container\Comment_Meta_Container';
-        $expected = '@method static \AlexSoft\Strauss\Carbon_Fields\Container\Comment_Meta_Container';
+        $expected = '@method static \AlexLabs\Strauss\Carbon_Fields\Container\Comment_Meta_Container';
 
         $config = $this->createMock(StraussConfig::class);
 
         $replacer = new Prefixer($config, __DIR__);
-        $result = $replacer->replaceNamespace($contents, 'Carbon_Fields\Container', 'AlexSoft\Strauss\Carbon_Fields\Container');
+        $result = $replacer->replaceNamespace($contents, 'Carbon_Fields\Container', 'AlexLabs\Strauss\Carbon_Fields\Container');
 
         $this->assertEquals($expected, $result);
     }
@@ -760,12 +760,12 @@ EOD;
     {
 
         $contents = 'return \Carbon_Fields\Carbon_Fields::resolve';
-        $expected = 'return \AlexSoft\Strauss\Carbon_Fields\Carbon_Fields::resolve';
+        $expected = 'return \AlexLabs\Strauss\Carbon_Fields\Carbon_Fields::resolve';
 
         $config = $this->createMock(StraussConfig::class);
 
         $replacer = new Prefixer($config, __DIR__);
-        $result = $replacer->replaceNamespace($contents, 'Carbon_Fields', 'AlexSoft\Strauss\Carbon_Fields');
+        $result = $replacer->replaceNamespace($contents, 'Carbon_Fields', 'AlexLabs\Strauss\Carbon_Fields');
 
         $this->assertEquals($expected, $result);
     }
@@ -779,7 +779,7 @@ EOD;
     {
 
         $contents = '		\\Carbon_Fields\\Carbon_Fields::service( \'legacy_storage\' )->enable()';
-        $expected = '		\\AlexSoft\\Strauss\\Carbon_Fields\\Carbon_Fields::service( \'legacy_storage\' )->enable()';
+        $expected = '		\\AlexLabs\\Strauss\\Carbon_Fields\\Carbon_Fields::service( \'legacy_storage\' )->enable()';
 
         $config = $this->createMock(StraussConfig::class);
 
@@ -787,7 +787,7 @@ EOD;
         $result = $replacer->replaceNamespace(
             $contents,
             'Carbon_Fields',
-            'AlexSoft\\Strauss\\Carbon_Fields'
+            'AlexLabs\\Strauss\\Carbon_Fields'
         );
 
         $this->assertEquals($expected, $result);
@@ -903,12 +903,12 @@ EOD;
     {
 
         $contents = 'use chillerlan\\QRCode\\{QRCode, QRCodeException};';
-        $expected = 'use AlexSoft\\Strauss\\chillerlan\\QRCode\\{QRCode, QRCodeException};';
+        $expected = 'use AlexLabs\\Strauss\\chillerlan\\QRCode\\{QRCode, QRCodeException};';
 
         $config = $this->createMock(StraussConfig::class);
 
         $replacer = new Prefixer($config, __DIR__);
-        $result = $replacer->replaceNamespace($contents, 'chillerlan\\QRCode', 'AlexSoft\\Strauss\\chillerlan\\QRCode');
+        $result = $replacer->replaceNamespace($contents, 'chillerlan\\QRCode', 'AlexLabs\\Strauss\\chillerlan\\QRCode');
 
         $this->assertEquals($expected, $result);
     }

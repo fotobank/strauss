@@ -11,16 +11,18 @@
  *
  *
  * @author BrianHenryIE
- * @author Alex Yury
+ * @author Alex Jurii
  *
  * @license MIT
  */
 
-namespace AlexSoft\Strauss;
+namespace AlexLabs\Strauss;
 
-use AlexSoft\Strauss\Composer\ComposerPackage;
-use AlexSoft\Strauss\Composer\Extra\StraussConfig;
+use AlexLabs\Strauss\Composer\ComposerPackage;
+use AlexLabs\Strauss\Composer\Extra\StraussConfig;
 use League\Flysystem\Adapter\Local;
+use League\Flysystem\FileExistsException;
+use League\Flysystem\FileNotFoundException;
 use League\Flysystem\Filesystem;
 use Symfony\Component\Finder\Finder;
 
@@ -77,6 +79,10 @@ class Licenser
         $this->filesystem = new Filesystem(new Local($workingDir));
     }
 
+    /**
+     * @throws FileNotFoundException
+     * @throws FileExistsException
+     */
     public function copyLicenses(): void
     {
         $this->findLicenseFiles();
@@ -222,7 +228,7 @@ class Licenser
             ~Ux';                          // U: Non-greedy matching, x: ignore whitespace in pattern.
 
 
-        $replaceInMultilineCommentFunction = function ($matches) use (
+        $replaceInMultilineCommentFunction = static function ($matches) use (
             $licenseDeclaration,
             $modifiedDeclaration,
             $straussLink

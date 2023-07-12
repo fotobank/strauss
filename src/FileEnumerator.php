@@ -11,16 +11,16 @@
  *
  *
  * @author BrianHenryIE
- * @author Alex Yury
+ * @author Alex Jurii
  *
  * @license MIT
  */
 
 
-namespace AlexSoft\Strauss;
+namespace AlexLabs\Strauss;
 
-use AlexSoft\Strauss\Composer\ComposerPackage;
-use AlexSoft\Strauss\Composer\Extra\StraussConfig;
+use AlexLabs\Strauss\Composer\ComposerPackage;
+use AlexLabs\Strauss\Composer\Extra\StraussConfig;
 use League\Flysystem\Adapter\Local;
 use League\Flysystem\Filesystem;
 use Symfony\Component\Finder\Finder;
@@ -103,7 +103,7 @@ class FileEnumerator
             /**
              * Where $dependency->autoload is ~
              *
-             * [ "psr-4" => [ "AlexSoft\Strauss" => "src" ] ]
+             * [ "psr-4" => [ "AlexLabs\Strauss" => "src" ] ]
              * Exclude "exclude-from-classmap"
              * @see https://getcomposer.org/doc/04-schema.md#exclude-files-from-classmaps
              */

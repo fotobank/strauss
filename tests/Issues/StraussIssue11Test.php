@@ -6,10 +6,10 @@
  * @see https://github.com/fotobank/strauss/issues/11
  */
 
-namespace AlexSoft\Strauss\Tests\Issues;
+namespace AlexLabs\Strauss\Tests\Issues;
 
-use AlexSoft\Strauss\Composer\Extra\StraussConfig;
-use AlexSoft\Strauss\Console\Commands\Compose;
+use AlexLabs\Strauss\Composer\Extra\StraussConfig;
+use AlexLabs\Strauss\Console\Commands\Compose;
 use Composer\Factory;
 use Composer\IO\NullIO;
 use Exception;
@@ -17,10 +17,10 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 /**
- * @package AlexSoft\Strauss\Tests\Issues
+ * @package AlexLabs\Strauss\Tests\Issues
  * @coversNothing
  */
-class StraussIssue11Test extends \AlexSoft\Strauss\Tests\Integration\Util\IntegrationTestCase
+class StraussIssue11Test extends \AlexLabs\Strauss\Tests\Integration\Util\IntegrationTestCase
 {
 
     /**
@@ -31,7 +31,7 @@ class StraussIssue11Test extends \AlexSoft\Strauss\Tests\Integration\Util\Integr
 
         $composerExtraStraussJson = <<<'EOD'
 {
-	"name": "alexsoft/strauss-issue-8",
+	"name": "AlexLabs/strauss-issue-8",
 	"extra": {
 		"mozart": {
 			"dep_namespace": "MZoo\\MBO_Sandbox\\Dependencies\\",
@@ -83,7 +83,7 @@ EOD;
 
         $composerJsonString = <<<'EOD'
 {
-	"name": "alexsoft/strauss-issue-8",
+	"name": "AlexLabs/strauss-issue-8",
 	"require":{
 	    "htmlburger/carbon-fields": "*"
 	},
@@ -144,7 +144,7 @@ EOD;
 
         $composerJsonString = <<<'EOD'
 {
-	"name": "alexsoft/strauss-issue-8",
+	"name": "AlexLabs/strauss-issue-8",
 	"require":{
 	    "htmlburger/carbon-fields": "*"
 	},

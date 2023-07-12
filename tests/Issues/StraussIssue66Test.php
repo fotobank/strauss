@@ -5,17 +5,17 @@
  * @see https://github.com/fotobank/strauss/issues/66
  */
 
-namespace AlexSoft\Strauss\Tests\Issues;
+namespace AlexLabs\Strauss\Tests\Issues;
 
-use AlexSoft\Strauss\Console\Commands\Compose;
+use AlexLabs\Strauss\Console\Commands\Compose;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 /**
- * @package AlexSoft\Strauss\Tests\Issues
+ * @package AlexLabs\Strauss\Tests\Issues
  * @coversNothing
  */
-class StraussIssue66Test extends \AlexSoft\Strauss\Tests\Integration\Util\IntegrationTestCase
+class StraussIssue66Test extends \AlexLabs\Strauss\Tests\Integration\Util\IntegrationTestCase
 {
 
     /**

@@ -3,20 +3,20 @@
  * @author BrianHenryIE
  */
 
-namespace AlexSoft\Strauss\Tests\Unit;
+namespace AlexLabs\Strauss\Tests\Unit;
 
 use ArrayIterator;
-use AlexSoft\Strauss\Composer\ComposerPackage;
-use AlexSoft\Strauss\Composer\Extra\StraussConfig;
-use AlexSoft\Strauss\Licenser;
+use AlexLabs\Strauss\Composer\ComposerPackage;
+use AlexLabs\Strauss\Composer\Extra\StraussConfig;
+use AlexLabs\Strauss\Licenser;
 use PHPUnit\Framework\Constraint\Callback;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Finder\Finder;
 
 /**
  * Class LicenserTest
- * @package AlexSoft\Strauss\Tests\Unit
- * @coversDefaultClass \AlexSoft\Strauss\Licenser
+ * @package AlexLabs\Strauss\Tests\Unit
+ * @coversDefaultClass \AlexLabs\Strauss\Licenser
  */
 class LicenserTest extends TestCase
 {

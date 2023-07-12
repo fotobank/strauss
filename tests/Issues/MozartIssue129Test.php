@@ -11,16 +11,16 @@
  * @author BrianHenryIE
  */
 
-namespace AlexSoft\Strauss\Tests\Issues;
+namespace AlexLabs\Strauss\Tests\Issues;
 
-use AlexSoft\Strauss\ChangeEnumerator;
-use AlexSoft\Strauss\Composer\Extra\StraussConfig;
-use AlexSoft\Strauss\Prefixer;
+use AlexLabs\Strauss\ChangeEnumerator;
+use AlexLabs\Strauss\Composer\Extra\StraussConfig;
+use AlexLabs\Strauss\Prefixer;
 use PHPUnit\Framework\TestCase;
 
 /**
  * Class MozartIssue129Test
- * @package AlexSoft\Strauss\Tests\Issues
+ * @package AlexLabs\Strauss\Tests\Issues
  * @coversNothing
  */
 class MozartIssue129Test extends TestCase
